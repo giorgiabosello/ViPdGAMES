@@ -2444,3 +2444,14 @@ textarea {
     height: 110px;
     width: 110px;
 }
+
+.gray-input {
+    background: #F0F0E9 none repeat scroll 0% 0%;
+    border: 0px none;
+    color: #A6A6A1;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    outline: medium none;
+    padding: 8px;
+    width: 48%;
+}
