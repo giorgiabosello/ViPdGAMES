@@ -2410,8 +2410,23 @@ textarea {
 }
 
 .games {
-    height: 249px;
-    width: 230px;
+    height: 268px !important;
+    width: 249px !important;
+}
+
+.games-small {
+    height: 134px !important;
+    width: 268px !important;
+}
+
+.games-preview {
+    height: 381px !important;
+    width: 310px !important;
+}
+
+.details-preview {
+    height: 84px !important;
+    width: 85px !important;
 }
 
 .profile {
@@ -2424,4 +2439,14 @@ textarea {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+}
+
+.slider-home {
+    width: 330px;
+    height: 441px;
+}
+
+.cart {
+    height: 110px;
+    width: 110px;
 }

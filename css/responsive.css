@@ -2,8 +2,8 @@
 
 @media (min-width: 1200px) {
     .games {
-        height: 249px;
-        width: 230px;
+        height: 268px;
+        width: 249px;
     }
 }
 /* md */
@@ -220,8 +220,8 @@
         display: inline-block;
     }
     .games {
-        height: 249px;
-        width: 230px !important;
+        height: 268px;
+        width: 249px !important;
         margin-right: auto;
         margin-left: auto;
     }
@@ -423,7 +423,7 @@
         float: none;
     }
     .games {
-        height: 249px;
-        width: 230px;
+         height: 268px;
+        width: 249px;
     }
 }
