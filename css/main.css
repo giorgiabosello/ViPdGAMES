@@ -2311,6 +2311,12 @@ textarea {
 ******* Contact CSS ********
 **************************/
 
+.contact-map {
+    width: 100%;
+    height: 385px;
+    margin-bottom: 70px
+}
+
 .contact-info .heading,
 .contact-form .heading {
     text-transform: capitalize;
