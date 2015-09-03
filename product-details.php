@@ -1,10 +1,14 @@
 <?php
 $codice = '1001'; //PER MICHELE: Inserisci qui il codice tra virgolette del gioco che dev'essere identico al record nel DB
 require_once("config.db.php"); //importo il file con connessione
-$query = "SELECT * FROM videogiochi WHERE codice = '$codice'";
+$query = "SELECT * FROM videogiochi WHERE codice = '$codice'"; //Query per dati del gioco
 $result = pg_query($dbconn,$query) or die('Query fallita: 
-' . pg_last_error());
-$line = pg_fetch_array($result, null, PGSQL_ASSOC);
+' . pg_last_error()); // Risultati $query
+$line = pg_fetch_array($result, null, PGSQL_ASSOC); //Array con i dati di $result
+$query_img = "SELECT * FROM foto WHERE foto.codice = '$codice'"; //Query per foto del gioco
+$result_img = pg_query($dbconn,$query_img) or die('Query fallita: 
+' . pg_last_error()); // Risultati $query_img
+$line_img = pg_fetch_array($result_img, null, PGSQL_ASSOC); //Array con i dati di $result
 $querydev = "SELECT * FROM videogiochi WHERE sviluppo = '$line[titolo]'";
 ?>
 
@@ -198,7 +202,7 @@ $querydev = "SELECT * FROM videogiochi WHERE sviluppo = '$line[titolo]'";
                         <!--product-details-->
                         <div class="col-sm-5">
                             <div class="view-product">
-                                <img src="http://placehold.it/266x381" class="games-preview img-responsive" alt="" />
+                                <img src=<?php echo "$line_img[path]"?> class="games-preview img-responsive" alt="" />
                                 <h3>ZOOM</h3>
                             </div>
                             <div id="similar-product" class="carousel slide" data-ride="carousel">
@@ -328,7 +332,6 @@ $querydev = "SELECT * FROM videogiochi WHERE sviluppo = '$line[titolo]'";
                                     </div>
                                 </div>
                             </div>
-                            
 
                             <div class="tab-pane fade active in" id="reviews">
                                 <div class="col-sm-12">
