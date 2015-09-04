@@ -1,12 +1,21 @@
-<!DOCTYPE html>
-<html lang="it">
+<?php $codice='1001' ; //PER MICHELE: Inserisci qui il codice tra virgolette del gioco che dev 'essere identico al record nel DB
+require_once("config.db.php"); //importo il file con connessione
+$query = "SELECT * FROM videogiochi WHERE codice = '$codice '"; //Query per dati del gioco
+$result = pg_query($dbconn,$query) or die('Query fallita: ' . pg_last_error()); // Risultati $query
+$line = pg_fetch_array($result, null, PGSQL_ASSOC); //Array con i dati di $result
+$query_img = "SELECT * FROM foto WHERE foto.codice = '$codice '"; //Query per foto del gioco
+$result_img = pg_query($dbconn,$query_img) or die('Query fallita: ' . pg_last_error()); // Risultati $query_img
+$line_img = pg_fetch_array($result_img, null, PGSQL_ASSOC); //Array con i dati di $result
+$querydev = "SELECT * FROM videogiochi WHERE sviluppo = '$line[titolo] '";
+?>
 
+<html lang="it">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Online Videogames Shopping Center">
     <meta name="author" content="ViPd GAMES">
-    <title>Dettagli Prodotto | ViPd GAMES</title>
+    <title>Dettagli Prodotto | ViPd GAMES</title> <!-- MICHELE qui potresti mettere il nome del gioco al posto di "Dettagli Prodotto" -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/prettyPhoto.css" rel="stylesheet">
@@ -20,10 +29,10 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->
     <link rel="shortcut icon" href="../logo.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../images/ico/apple-touch-icon-57-precomposed.png">
 </head>
 <!--/head-->
 
@@ -190,7 +199,7 @@
                         <!--product-details-->
                         <div class="col-sm-5">
                             <div class="view-product">
-                                <img src="http://placehold.it/266x381" class="games-preview img-responsive" alt="" />
+                                <img src=<?php echo "$line_img[path]"?> class="games-preview img-responsive" alt="" />
                                 <h3>ZOOM</h3>
                             </div>
                         </div>
@@ -198,20 +207,21 @@
                             <div class="product-information">
                                 <!--/product-information-->
                                 <img src="../images/product-details/new.jpg" class="newarrival" alt="" />
-                                <h2>The Witcher Wild III Hunt</h2>
-                                <p>Web ID: 1089772</p>
+                                <h2><?php echo "$line[titolo]"?></h2>
+                                <p>Codice: <?php echo "$line[codice]"?></p>
                                 <img src="../images/product-details/rating.png" alt="" />
                                 <span>
-									<span>€ 69,99</span>
+									<span>€<?php echo "$line[prezzo]"?></span>
                                 <label>Quantity:</label>
                                 <input type="text" value="1" />
                                 <button type="button" class="btn btn-default cart">
                                     <i class="fa fa-shopping-cart"></i> Acquista
                                 </button>
                                 </span>
-                                <p><b>Disponibilità:</b> 15</p>
-                                <p><b>Condizione:</b> Nuovo arrivo</p>
-                                <p><b>Sviluppatore:</b> CD Projekt RED</p>
+                                <p><b>Disponibilità: </b> <?php echo "$line[quantita]"?></p>
+                                <p><b>Condizione: </b> Nuovo arrivo</p>
+                                <p><b>Console: </b> <?php echo "$line[console]"?></p>
+                                <p><b>Sviluppatore: </b> <?php echo "$line[sviluppo]"?></p>
                                 <a href=""><img src="../images/product-details/share.png" class="share img-responsive" alt="" />
                                 </a>
                             </div>
@@ -221,96 +231,28 @@
                     <!--/product-details-->
 
                     <div class="category-tab shop-details-tab">
-                        <!--category-tab-->
                         <div class="col-sm-12">
                             <ul class="nav nav-tabs">
-                                <li><a href="#companyprofile" data-toggle="tab">Sviluppatore</a>
+                                <li class="active"><a href="#description" data-toggle="tab">Descrizione</a>
                                 </li>
-                                <li class="active"><a href="#reviews" data-toggle="tab">Valutazioni (11010)</a>
-                                </li>
+                                <?php
+                                    if($line[console] == 'PC '){
+                                        echo "<li ><a href=\"#requisiti\" data-toggle=\"tab\">Requisiti</a>";
+                                        echo "</li>";
+                                    }
+                                ?>
                             </ul>
                         </div>
                         <div class="tab-content">
-                            <div class="tab-pane fade" id="companyprofile">
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="http://placehold.it/208x183" alt="" />
-                                                <h2>€50</h2>
-                                                <p>The Witcher</p>
-                                                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al Carrello</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="http://placehold.it/208x183" alt="" />
-                                                <h2>€59,99</h2>
-                                                <p>The Witcher II</p>
-                                                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al Carrello</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="http://placehold.it/208x183" alt="" />
-                                                <h2>€45</h2>
-                                                <p>Cyberpunk 2077</p>
-                                                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="http://placehold.it/208x183" alt="" />
-                                                <h2>€50</h2>
-                                                <p>The Witcher Battle Arena</p>
-                                                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <!--Da riempire con descrizione-->
+                            <div class="tab-pane fade active in" id="description"> 
+                                
                             </div>
-
-                            <div class="tab-pane fade active in" id="reviews">
-                                <div class="col-sm-12">
-                                    <ul>
-                                        <li><a href=""><i class="fa fa-user"></i>CHRIS</a>
-                                        </li>
-                                        <li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a>
-                                        </li>
-                                        <li><a href=""><i class="fa fa-calendar-o"></i>12 AGO 2015</a>
-                                        </li>
-                                    </ul>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                    <p><b>Scrivi la tua recensione</b>
-                                    </p>
-
-                                    <form action="#">
-                                        <span>
-											<input type="text" placeholder="Tuo Nome"/>
-											<input type="email" placeholder="Indirizzo Email"/>
-										</span>
-                                        <textarea name=""></textarea>
-                                        <b>Rating: </b> <img src="../images/product-details/rating.png" alt="" />
-                                        <button type="button" class="btn btn-default pull-right">
-                                            Invia
-                                        </button>
-                                    </form>
-                                </div>
+                            
+                            <!--Da riempire con requisiti, visibile solo se console==PC-->
+                            <div class="tab-pane fade" id="requisiti">
+                                
                             </div>
-
-                        </div>
                     </div>
                     <!--/category-tab-->
 
@@ -424,10 +366,10 @@
 
     <!-- Script js -->
     <script>
-        $("#footer").load("footer.html");
+        $("#footer").load("../footer.html");
     </script>
     <script>
-        $("#navbar").load("navbar.html");
+        $("#navbar").load("../navbar.html");
     </script>
     <script src="../js/jquery.js"></script>
     <script src="../js/jquery.scrollUp.min.js"></script>

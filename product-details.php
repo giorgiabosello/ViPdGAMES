@@ -1,15 +1,12 @@
-<?php
-$codice = '1001'; //PER MICHELE: Inserisci qui il codice tra virgolette del gioco che dev'essere identico al record nel DB
+<?php $codice='1001' ; //PER MICHELE: Inserisci qui il codice tra virgolette del gioco che dev 'essere identico al record nel DB
 require_once("config.db.php"); //importo il file con connessione
-$query = "SELECT * FROM videogiochi WHERE codice = '$codice'"; //Query per dati del gioco
-$result = pg_query($dbconn,$query) or die('Query fallita: 
-' . pg_last_error()); // Risultati $query
+$query = "SELECT * FROM videogiochi WHERE codice = '$codice '"; //Query per dati del gioco
+$result = pg_query($dbconn,$query) or die('Query fallita: ' . pg_last_error()); // Risultati $query
 $line = pg_fetch_array($result, null, PGSQL_ASSOC); //Array con i dati di $result
-$query_img = "SELECT * FROM foto WHERE foto.codice = '$codice'"; //Query per foto del gioco
-$result_img = pg_query($dbconn,$query_img) or die('Query fallita: 
-' . pg_last_error()); // Risultati $query_img
+$query_img = "SELECT * FROM foto WHERE foto.codice = '$codice '"; //Query per foto del gioco
+$result_img = pg_query($dbconn,$query_img) or die('Query fallita: ' . pg_last_error()); // Risultati $query_img
 $line_img = pg_fetch_array($result_img, null, PGSQL_ASSOC); //Array con i dati di $result
-$querydev = "SELECT * FROM videogiochi WHERE sviluppo = '$line[titolo]'";
+$querydev = "SELECT * FROM videogiochi WHERE sviluppo = '$line[titolo] '";
 ?>
 
 <html lang="it">
@@ -18,24 +15,24 @@ $querydev = "SELECT * FROM videogiochi WHERE sviluppo = '$line[titolo]'";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Online Videogames Shopping Center">
     <meta name="author" content="ViPd GAMES">
-    <title>Dettagli Prodotto | ViPd GAMES</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <title>Dettagli Prodotto | ViPd GAMES</title> <!-- MICHELE qui potresti mettere il nome del gioco al posto di "Dettagli Prodotto" -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prettyPhoto.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../logo.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../images/ico/apple-touch-icon-57-precomposed.png">
 </head>
 <!--/head-->
 
@@ -190,7 +187,7 @@ $querydev = "SELECT * FROM videogiochi WHERE sviluppo = '$line[titolo]'";
 
                         <div class="shipping text-center">
                             <!--shipping-->
-                            <img src="images/home/shipping.jpg" alt="" />
+                            <img src="../images/home/shipping.jpg" alt="" />
                         </div>
                         <!--/shipping-->
 
@@ -205,54 +202,14 @@ $querydev = "SELECT * FROM videogiochi WHERE sviluppo = '$line[titolo]'";
                                 <img src=<?php echo "$line_img[path]"?> class="games-preview img-responsive" alt="" />
                                 <h3>ZOOM</h3>
                             </div>
-                            <div id="similar-product" class="carousel slide" data-ride="carousel">
-
-                                <!-- Wrapper for slides -->
-                                <div class="carousel-inner">
-                                    <div class="item active">
-                                        <a href=""><img src="http://placehold.it/85x84" class="details-preview img-responsive" alt="" />
-                                        </a>
-                                        <a href=""><img src="http://placehold.it/85x84" class="details-preview img-responsive" alt="" />
-                                        </a>
-                                        <a href=""><img src="http://placehold.it/85x84" class="details-preview img-responsive" alt="" />
-                                        </a>
-                                    </div>
-                                    <div class="item">
-                                        <a href=""><img src="http://placehold.it/85x84" class="details-preview img-responsive" alt="" />
-                                        </a>
-                                        <a href=""><img src="http://placehold.it/85x84" class="details-preview img-responsive" alt="" />
-                                        </a>
-                                        <a href=""><img src="http://placehold.it/85x84" class="details-preview img-responsive" alt="" />
-                                        </a>
-                                    </div>
-                                    <div class="item">
-                                        <a href=""><img src="http://placehold.it/85x84" class="details-preview img-responsive" alt="" />
-                                        </a>
-                                        <a href=""><img src="http://placehold.it/85x84" class="details-preview img-responsive" alt="" />
-                                        </a>
-                                        <a href=""><img src="http://placehold.it/85x84" class="details-preview img-responsive" alt="" />
-                                        </a>
-                                    </div>
-
-                                </div>
-
-                                <!-- Controls -->
-                                <a class="left item-control" href="#similar-product" data-slide="prev">
-                                    <i class="fa fa-angle-left"></i>
-                                </a>
-                                <a class="right item-control" href="#similar-product" data-slide="next">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </div>
-
                         </div>
                         <div class="col-sm-7">
                             <div class="product-information">
                                 <!--/product-information-->
-                                <img src="images/product-details/new.jpg" class="newarrival" alt="" />
+                                <img src="../images/product-details/new.jpg" class="newarrival" alt="" />
                                 <h2><?php echo "$line[titolo]"?></h2>
                                 <p>Codice: <?php echo "$line[codice]"?></p>
-                                <img src="images/product-details/rating.png" alt="" />
+                                <img src="../images/product-details/rating.png" alt="" />
                                 <span>
 									<span>€<?php echo "$line[prezzo]"?></span>
                                 <label>Quantity:</label>
@@ -265,7 +222,7 @@ $querydev = "SELECT * FROM videogiochi WHERE sviluppo = '$line[titolo]'";
                                 <p><b>Condizione: </b> Nuovo arrivo</p>
                                 <p><b>Console: </b> <?php echo "$line[console]"?></p>
                                 <p><b>Sviluppatore: </b> <?php echo "$line[sviluppo]"?></p>
-                                <a href=""><img src="images/product-details/share.png" class="share img-responsive" alt="" />
+                                <a href=""><img src="../images/product-details/share.png" class="share img-responsive" alt="" />
                                 </a>
                             </div>
                             <!--/product-information-->
@@ -279,7 +236,7 @@ $querydev = "SELECT * FROM videogiochi WHERE sviluppo = '$line[titolo]'";
                                 <li class="active"><a href="#description" data-toggle="tab">Descrizione</a>
                                 </li>
                                 <?php
-                                    if($line[console] == 'PC'){
+                                    if($line[console] == 'PC '){
                                         echo "<li ><a href=\"#requisiti\" data-toggle=\"tab\">Requisiti</a>";
                                         echo "</li>";
                                     }
@@ -414,11 +371,11 @@ $querydev = "SELECT * FROM videogiochi WHERE sviluppo = '$line[titolo]'";
     <script>
         $("#navbar").load("navbar.html");
     </script>
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery.scrollUp.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/main.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery.scrollUp.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.prettyPhoto.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>
