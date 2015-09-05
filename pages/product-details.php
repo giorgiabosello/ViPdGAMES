@@ -366,10 +366,10 @@ $querydev = "SELECT * FROM videogiochi WHERE sviluppo = '$line[titolo] '";
 
     <!-- Script js -->
     <script>
-        $("#footer").load("../footer.html");
+        $("#footer").load("footer.html");
     </script>
     <script>
-        $("#navbar").load("../navbar.html");
+        $("#navbar").load("navbar.html");
     </script>
     <script src="../js/jquery.js"></script>
     <script src="../js/jquery.scrollUp.min.js"></script>
