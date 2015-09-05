@@ -2340,6 +2340,10 @@ textarea {
     height: 160px;
     resize: none;
 }
+#insert-page #text_area {
+    height: 160px;
+    resize: none;
+}
 
 #main-contact-form .btn-primary {
     margin-bottom: 15px;

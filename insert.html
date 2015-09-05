@@ -35,7 +35,7 @@
 
     <!--/navbar-->
 
-    <div id="contact-page" class="container">
+    <div id="insert-page" class="container">
         <div class="bg">
             <div class="row">
                 <div class="col-sm-12">
@@ -53,35 +53,43 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <select class="form-control" required="required">
-                                    <option>Categoria</option>
-                                    <option>Avventura</option>
+                                    <option value='' disabled selected style='display:none;'>Categoria</option>
+                                    <option>Azione/Avventura</option>
                                     <option>RPG</option>
-                                    <option>ecc</option>
+                                    <option>Simulazione</option>
+                                    <option>Sparatutto</option>
+                                    <option>Sport</option>
+                                    <option>Strategia</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <input type="text" name="title" class="form-control" required="required" placeholder="Titolo">
                             </div>
                             <div class="form-group col-md-6">
-                                <select class="form-control" required="required">
-                                    <option>Console</option>
-                                    <option>PC</option>
-                                    <option>PS4</option>
-                                    <option>PS3</option>
-                                    <option>XBOX</option>
+                                <select id="show" class="form-control" required="required" onchange="change()">
+                                    <option value='' disabled selected style='display:none;'>Console</option>
+                                    <option value="1">PC</option>
+                                    <option value="2">PS4</option>
+                                    <option value="3">PS3</option>
+                                    <option value="4">Xbox</option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-6">
-                                <textarea name="development" required="required" class="form-control" rows="8" placeholder="Sviluppo"></textarea>
+                            <div class="col-md-12">
+                                <!-- text area -->
+                                <textarea id="text_area" name="message" class="form-control" type="text" placeholder="Requisiti di sistema" rows="8" style="display: none"></textarea>
+                                <br>
                             </div>
                             <div class="form-group col-md-6">
-                                <textarea name="release" required="required" class="form-control" rows="8" placeholder="Rilascio"></textarea>
+                                <input type="text" name="development" class="form-control" required="required" placeholder="Sviluppo">
                             </div>
                             <div class="form-group col-md-6">
-                                <textarea name="price" required="required" class="form-control" rows="8" placeholder="Prezzo"></textarea>
+                                <input type="text" name="release" class="form-control" required="required" placeholder="Rilascio">
                             </div>
                             <div class="form-group col-md-6">
-                                <textarea name="quantity" required="required" class="form-control" rows="8" placeholder="Quantità"></textarea>
+                                <input type="text" name="price" class="form-control" required="required" placeholder="Prezzo">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" name="quantity" class="form-control" required="required" placeholder="Quantità">
                             </div>
                             <div class="form-group col-md-12">
                                 <input type="submit" name="submit" class="btn btn-primary pull-right" value="Inserisci">
@@ -104,6 +112,18 @@
     </script>
     <script>
         $("#navbar").load("navbar.html");
+    </script>
+    <script>
+        function change() {
+            var selectBox = document.getElementById("show");
+            var selected = selectBox.options[selectBox.selectedIndex].value;
+            var textarea = document.getElementById("text_area");
+            if (selected === '1') {
+                textarea.style.display = "block";
+            } else {
+                textarea.style.display = "none";
+            }
+        }
     </script>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
