@@ -168,70 +168,74 @@ $querydev = "SELECT * FROM videogiochi WHERE sviluppo = '$line[titolo] '";
                                 <span>
 									<span>€<?php echo "$line[prezzo]"?></span>
                                 <label>Quantity:</label>
-                                <input type="text" value="1" />
-                                <button type="button" class="btn btn-default cart">
-                                    <i class="fa fa-shopping-cart"></i> Acquista
+                                <input type="text" value="1" /><button type="button" class="btn btn-default cart">
+                                    <a href="#errore" class="fa fa-shopping-cart"></a> Acquista
                                 </button>
                                 </span>
-                                <p><b>Disponibilità: </b> <?php echo "$line[quantita]"?></p>
-                                <p><b>Condizione: </b> Nuovo arrivo</p>
-                                <p><b>Console: </b> <?php echo "$line[console]"?></p>
-                                <p><b>Sviluppatore: </b> <?php echo "$line[sviluppo]"?></p>
-                                <a href=""><img src="../images/product-details/share.png" class="share img-responsive" alt="" />
-                                </a>
-                            </div>
-                            <!--/product-information-->
-                        </div>
-                    </div>
-                    <!--/product-details-->
+                                <!-- ANCHORAGE ERRORE DISPONIBILITA' -->
+<div id="errore" class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> La quantità richiesta supera la nostra disponibilità.
+</div>
+<div id="successo" class="alert alert-success"><i class="fa fa-check-circle"></i> Gioco aggiunto con successo al carrello.
+</div>
+<!-- /. ANCHORAGE -->
+<p><b>Disponibilità: </b>
+    <?php echo "$line[quantita]"?>
+</p>
+<p><b>Condizione: </b> Nuovo arrivo</p>
+<p><b>Console: </b>
+    <?php echo "$line[console]"?>
+</p>
+<p><b>Sviluppatore: </b>
+    <?php echo "$line[sviluppo]"?>
+</p>
+<a href=""><img src="../images/product-details/share.png" class="share img-responsive" alt="" />
+</a>
+</div>
+<!--/product-information-->
+</div>
+</div>
+<!--/product-details-->
 
-                    <div class="category-tab shop-details-tab">
-                        <div class="col-sm-12">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#description" data-toggle="tab">Descrizione</a>
-                                </li>
-                                <?php
-                                    if($line[console] == 'PC '){
-                                        echo "<li ><a href=\"#requisiti\" data-toggle=\"tab\">Requisiti</a>";
-                                        echo "</li>";
-                                    }
-                                ?>
-                            </ul>
-                        </div>
-                        <div class="tab-content">
-                            <!--Da riempire con descrizione-->
-                            <div class="tab-pane fade active in" id="description"> 
-                                
-                            </div>
-                            
-                            <!--Da riempire con requisiti, visibile solo se console==PC-->
-                            <div class="tab-pane fade" id="requisiti">
-                                
-                            </div>
-                    </div>
-                    <!--/category-tab-->
+<div class="category-tab shop-details-tab">
+    <div class="col-sm-12">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#description" data-toggle="tab">Descrizione</a>
+            </li>
+            <?php if($line[console]=='PC ' ){ echo "<li ><a href=\"#requisiti\ " data-toggle=\"tab\ ">Requisiti</a>"; echo "</li>"; } ?>
+        </ul>
+    </div>
+    <div class="tab-content">
+        <!--Da riempire con descrizione-->
+        <div class="tab-pane fade active in" id="description">
 
-                </div>
-            </div>
         </div>
-    </section>
 
-    <!--Footer-->
-    <div id="footer"></div>
-    <!--/Footer-->
+        <!--Da riempire con requisiti, visibile solo se console==PC-->
+        <div class="tab-pane fade" id="requisiti">
 
-    <!-- Script js -->
-    <script>
-        $("#footer").load("footer.html");
-    </script>
-    <script>
-        $("#navbar").load("navbar.html");
-    </script>
-    <script src="../js/jquery.js"></script>
-    <script src="../js/jquery.scrollUp.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/jquery.prettyPhoto.js"></script>
-    <script src="../js/main.js"></script>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</section>
+
+<!--Footer-->
+<div id="footer"></div>
+<!--/Footer-->
+
+<!-- Script js -->
+<script>
+    $("#footer").load("footer.html");
+</script>
+<script>
+    $("#navbar").load("navbar.html");
+</script>
+<script src="../js/jquery.js"></script>
+<script src="../js/jquery.scrollUp.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.prettyPhoto.js"></script>
+<script src="../js/main.js"></script>
 </body>
 
 </html>

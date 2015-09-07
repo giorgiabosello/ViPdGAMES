@@ -1266,6 +1266,8 @@ h2.title {
     font-size: 15px;
     margin-bottom: 10px;
     margin-left: 20px;
+    height: 110px;
+    width: 110px;
 }
 
 .shop-details-tab {
@@ -2444,10 +2446,7 @@ textarea {
     height: 441px;
 }
 
-.cart {
-    height: 110px;
-    width: 110px;
-}
+
 
 .gray-input {
     background: #F0F0E9 none repeat scroll 0% 0%;
