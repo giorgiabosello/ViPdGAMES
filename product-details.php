@@ -83,35 +83,6 @@ $querydev = "SELECT * FROM videogiochi WHERE sviluppo = '$line[titolo] '";
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#ps4">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											PS4
-										</a>
-									</h4>
-                                </div>
-                                <div id="ps4" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <ul>
-                                            <li><a href="#">Azione/Avventura</a>
-                                            </li>
-                                            <li><a href="#">RPG</a>
-                                            </li>
-                                            <li><a href="#">Simulazione</a>
-                                            </li>
-                                            <li><a href="#">Sparatutto</a>
-                                            </li>
-                                            <li><a href="#">Sport</a>
-                                            </li>
-                                            <li><a href="#">Strategia</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="#accordian" href="#xbox">
 											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
 											PS3
@@ -165,21 +136,6 @@ $querydev = "SELECT * FROM videogiochi WHERE sviluppo = '$line[titolo] '";
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="#">In Offerta</a></h4>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="#">Nuovi Arrivi</a></h4>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="#">Usato</a></h4>
-                                </div>
-                            </div>
                         </div>
                         <!--/category-products-->
 
@@ -200,7 +156,6 @@ $querydev = "SELECT * FROM videogiochi WHERE sviluppo = '$line[titolo] '";
                         <div class="col-sm-5">
                             <div class="view-product">
                                 <img src=<?php echo "$line_img[path]"?> class="games-preview img-responsive" alt="" />
-                                <h3>ZOOM</h3>
                             </div>
                         </div>
                         <div class="col-sm-7">
@@ -255,105 +210,6 @@ $querydev = "SELECT * FROM videogiochi WHERE sviluppo = '$line[titolo] '";
                             </div>
                     </div>
                     <!--/category-tab-->
-
-                    <div class="recommended_items">
-                        <!--recommended_items-->
-                        <h2 class="title text-center">Giochi raccomandati</h2>
-
-                        <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="http://placehold.it/268x134" class="games-small img-responsive" alt="" />
-                                                    <h2>€30</h2>
-                                                    <p>Super Mario Kart</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al Carrello</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="http://placehold.it/268x134" class="games-small img-responsive" alt="" />
-                                                    <h2>€25</h2>
-                                                    <p>Top Gun</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al Carrello</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="http://placehold.it/268x134" class="games-small img-responsive" alt="" />
-                                                    <h2>€56</h2>
-                                                    <p>Need For Speed</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al Carrello</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="http://placehold.it/268x134" class="games-small img-responsive" alt="" />
-                                                    <h2>€35</h2>
-                                                    <p>Splinter Cell</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al Carrello</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="http://placehold.it/268x134" class="games-small img-responsive" alt="" />
-                                                    <h2>€20</h2>
-                                                    <p>PES 2010</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al Carrello</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="http://placehold.it/268x134" class="games-small img-responsive" alt="" />
-                                                    <h2>€50</h2>
-                                                    <p>Moto GP 15</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al Carrello</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                            <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!--/recommended_items-->
 
                 </div>
             </div>
