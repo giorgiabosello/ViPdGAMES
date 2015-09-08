@@ -1,6 +1,7 @@
-<?php $codice='1001' ; //PER MICHELE: Inserisci qui il codice tra virgolette del gioco che dev 'essere identico al record nel DB
+<?php 
+$codice='1001' ; //PER MICHELE: Inserisci qui il codice tra virgolette del gioco che dev 'essere identico al record nel DB
 require_once("config.db.php"); //importo il file con connessione
-$query = "SELECT * FROM videogiochi WHERE codice = '$codice '"; //Query per dati del gioco
+$query = "SELECT * FROM videogiochi WHERE codice = '$codice'"; //Query per dati del gioco
 $result = pg_query($dbconn,$query) or die('Query fallita: ' . pg_last_error()); // Risultati $query
 $line = pg_fetch_array($result, null, PGSQL_ASSOC); //Array con i dati di $result
 ?>
@@ -198,7 +199,7 @@ $line = pg_fetch_array($result, null, PGSQL_ASSOC); //Array con i dati di $resul
                             <!--product-details-->
                             <div class="col-sm-5">
                                 <div class="view-product">
-                                    <img src=<?php echo "$line[path]"?> class="games-preview img-responsive" alt="" />
+                                    <img src="../pages<?php echo " $line[path] "?>" class="games-preview img-responsive" alt="" />
                                     <h3>ZOOM</h3>
                                 </div>
                             </div>
