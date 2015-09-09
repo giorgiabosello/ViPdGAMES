@@ -4,6 +4,16 @@ require_once("config.db.php"); //importo il file con connessione
 $query = "SELECT * FROM videogiochi WHERE codice = '$codice'"; //Query per dati del gioco
 $result = pg_query($dbconn,$query) or die('Query fallita: ' . pg_last_error()); // Risultati $query
 $line = pg_fetch_array($result, null, PGSQL_ASSOC); //Array con i dati di $result
+if(isset($_POST["qt"])){
+    if($_POST["qt"] > $line[quantita]){
+        $color = red;
+        $string = "Spiacente, la quantità massima ordinabile è: $line[quantita]";
+    }
+    else{
+        $color = green;
+        $string = "Aggiunti $line[quantita] prodotti al carrello!";
+    }
+}
 ?>
 
     <html lang="it">
@@ -205,6 +215,7 @@ $line = pg_fetch_array($result, null, PGSQL_ASSOC); //Array con i dati di $resul
                             </div>
                             <div class="col-sm-7">
                                 <div class="product-information">
+                                    <form method="post">
                                     <!--/product-information-->
                                     <img src="../images/product-details/new.jpg" class="newarrival" alt="" />
                                     <h2><?php echo "$line[titolo]"?></h2>
@@ -214,12 +225,19 @@ $line = pg_fetch_array($result, null, PGSQL_ASSOC); //Array con i dati di $resul
                                     <img src="../images/product-details/rating.png" alt="" />
                                     <span>
 									<span>€<?php echo "$line[prezzo]"?></span>
-                                    <label>Quantity:</label>
-                                    <input type="text" value="1" />
-                                    <button type="button" class="btn btn-default cart">
-                                        <i class="fa fa-shopping-cart"></i> Acquista
-                                    </button>
+
+                                            <label>Quantity:</label>
+                                            <input type="text" value="1" name="qt" />
+                                            <button type="submit" class="btn btn-default cart">
+                                                <i class="fa fa-shopping-cart"></i> Acquista
+                                            </button>
+
                                     </span>
+                                    <?php
+                                    if(isset($_POST["qt"])){
+                                        echo "<p style='color: $color'>$string</p>";
+                                    }
+                                    ?>
                                     <p><b>Disponibilità: </b>
                                         <?php echo "$line[quantita]"?>
                                     </p>
@@ -231,6 +249,7 @@ $line = pg_fetch_array($result, null, PGSQL_ASSOC); //Array con i dati di $resul
                                     </p>
                                     <a href=""><img src="../images/product-details/share.png" class="share img-responsive" alt="" />
                                     </a>
+                                    </form>
                                 </div>
                                 <!--/product-information-->
                             </div>
@@ -251,6 +270,7 @@ $line = pg_fetch_array($result, null, PGSQL_ASSOC); //Array con i dati di $resul
                                 </ul>
                             </div>
                             <div class="tab-content">
+                                <!--Descrizione importata in automatico-->
                                 <?php echo "$line[descrizione]"?>
                                     <div class="tab-pane fade active in" id="description">
 
