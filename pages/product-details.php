@@ -227,8 +227,9 @@ if(isset($_POST["qt"])){
 									<span>€<?php echo "$line[prezzo]"?></span>
 
                                             <label>Quantity:</label>
-                                            <input type="text" value="1" name="qt" />
-                                            <button type="submit" class="btn btn-default cart">
+                                            <input <?php if(!isset($_SESSION["login"])) echo "disabled"; ?> type="text" value="1" name="qt"/>
+                                            <?php if(!isset($_SESSION["login"])) echo "<p style='color: red'></br>Per ordinare devi essere registrato</p>"; ?>
+                                            <button <?php if(!isset($_SESSION["login"])) echo "disabled"; ?> type="submit" class="btn btn-default cart" >
                                                 <i class="fa fa-shopping-cart"></i> Acquista
                                             </button>
 
