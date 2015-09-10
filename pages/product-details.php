@@ -1,6 +1,6 @@
 <?php 
 $codice='1001' ; //PER MICHELE: Inserisci qui il codice tra virgolette del gioco che dev 'essere identico al record nel DB
-require_once("config.db.php"); //importo il file con connessione
+require_once("../config/config.db.php"); //importo il file con connessione
 $query = "SELECT * FROM videogiochi WHERE codice = '$codice'"; //Query per dati del gioco
 $result = pg_query($dbconn,$query) or die('Query fallita: ' . pg_last_error()); // Risultati $query
 $line = pg_fetch_array($result, null, PGSQL_ASSOC); //Array con i dati di $result
