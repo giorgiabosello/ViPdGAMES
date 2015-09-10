@@ -1,3 +1,14 @@
+<?php
+session_start();
+require_once("config/config.db.php");
+$username = $_SESSION["id"];
+$query = "SELECT * FROM utenti WHERE login = '$username'"; //Query per dati dell'utente
+$result = pg_query($dbconn,$query) or die('Query fallita: ' . pg_last_error()); // Risultati $query
+$line = pg_fetch_array($result, null, PGSQL_ASSOC); //Array con i dati di $result
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="it">
 
@@ -72,62 +83,39 @@
                                 <div class="purchase-item-details hidden-xs">
                                     <div class="table-responsive">
                                         <table class="table">
-                                            <thead>
                                                 <br>
+                                            <tr>
+                                                <td>Username</td>
+                                                <td><?php echo "$line[login]"?></td>
+                                            </tr>
                                                 <tr>
                                                     <td>e-mail</td>
-                                                    <td>elena.colombo@email.it</td>
+                                                    <td><?php echo "$line[email]"?></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Password</td>
-                                                    <td>********************</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Titolo</td>
-                                                    <td>Sig.ra</td>
-                                                </tr>
-                                                <tr>
                                                     <td>Nome</td>
-                                                    <td>Elena</td>
+                                                    <td><?php echo "$line[nome]"?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Cognome</td>
                                                     <br>
-                                                    <td>Colombo</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Data di nascita</td>
-                                                    <td>01/01/1980</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Codice fiscale</td>
-                                                    <td>CLMLNE80A41L736J</td>
+                                                    <td><?php echo "$line[cognome]"?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Indirizzo (residenza)</td>
-                                                    <td>via Monte Fato, 1</td>
+                                                    <td><?php echo "$line[indirizzo]"?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>C.A.P.</td>
-                                                    <td>30170</td>
+                                                    <td><?php echo "$line[cap]"?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Città</td>
-                                                    <td>Mestre</td>
+                                                    <td><?php echo "$line[citta]"?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Provincia</td>
-                                                    <td>VE</td>
+                                                    <td><?php echo "$line[provincia]"?></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Stato</td>
-                                                    <td>Italia</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Telefono</td>
-                                                    <td>0123456789</td>
-                                                </tr>
-                                            </thead>
                                         </table>
                                     </div>
                                 </div>
@@ -142,34 +130,16 @@
                                         </tr>
                                         <br>
                                         <tr>
-                                            <td>elena.colombo@email.it</td>
+                                            <td><?php echo "$line[email]"?></td>
                                         </tr>
                                         <br>
                                         <br>
                                         <tr>
-                                            <td>Password</td>
-                                        </tr>
-                                        <br>
-                                        <tr>
-                                            <td>********************</td>
-                                        </tr>
-                                        <br>
-                                        <br>
-                                        <tr>
-                                            <td>Titolo</td>
-                                            <tr>
-                                                <br>
-                                                <tr>
-                                                    <td>Sig.ra</td>
-                                                </tr>
-                                                <br>
-                                                <br>
-                                                <tr>
-                                                    <td>Nome</td>
+                                            <td>Nome</td>
                                                 </tr>
                                                 <br>
                                                 <tr>
-                                                    <td>Elena</td>
+                                                    <td><?php echo "$line[nome]"?></td>
                                                 </tr>
                                                 <br>
                                                 <br>
@@ -178,25 +148,7 @@
                                                 </tr>
                                                 <br>
                                                 <tr>
-                                                    <td>Colombo</td>
-                                                </tr>
-                                                <br>
-                                                <br>
-                                                <tr>
-                                                    <td>Data di nascita</td>
-                                                </tr>
-                                                <br>
-                                                <tr>
-                                                    <td>01/01/1980</td>
-                                                </tr>
-                                                <br>
-                                                <br>
-                                                <tr>
-                                                    <td>Codice fiscale</td>
-                                                </tr>
-                                                <br>
-                                                <tr>
-                                                    <td>CLMLNE80A41L736J</td>
+                                                    <td><?php echo "$line[cognome]"?></td>
                                                 </tr>
                                                 <br>
                                                 <br>
@@ -205,7 +157,7 @@
                                                 </tr>
                                                 <br>
                                                 <tr>
-                                                    <td>via Monte Fato, 1</td>
+                                                    <td><?php echo "$line[indirizzo]"?></td>
                                                 </tr>
                                                 <br>
                                                 <br>
@@ -214,7 +166,7 @@
                                                 </tr>
                                                 <br>
                                                 <tr>
-                                                    <td>30170</td>
+                                                    <td><?php echo "$line[cap]"?></td>
                                                 </tr>
                                                 <br>
                                                 <br>
@@ -223,7 +175,7 @@
                                                 </tr>
                                                 <br>
                                                 <tr>
-                                                    <td>Mestre</td>
+                                                    <td><?php echo "$line[citta]"?></td>
                                                 </tr>
                                                 <br>
                                                 <br>
@@ -232,25 +184,7 @@
                                                 </tr>
                                                 <br>
                                                 <tr>
-                                                    <td>VE</td>
-                                                </tr>
-                                                <br>
-                                                <br>
-                                                <tr>
-                                                    <td>Stato</td>
-                                                </tr>
-                                                <br>
-                                                <tr>
-                                                    <td>Italia</td>
-                                                </tr>
-                                                <br>
-                                                <br>
-                                                <tr>
-                                                    <td>Telefono</td>
-                                                </tr>
-                                                <br>
-                                                <tr>
-                                                    <td>0123456789</td>
+                                                    <td><?php echo "$line[provincia]"?></td>
                                                 </tr>
                                                 <br>
                                                 <br>

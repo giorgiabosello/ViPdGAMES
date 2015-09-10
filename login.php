@@ -64,17 +64,17 @@
                     </div>
                     <div class="offer offer-default">
                         <div class="">
-                            <form novalidate="novalidate" action="/login" method="post">
+                            <form novalidate="novalidate" method="post" action="config/verifica.php">
                                 <div class="text-danger">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-3">
                                         <div class="">
-                                            <label class="" for="Email">Email:</label>
+                                            <label class="" for="username">Username:</label>
                                         </div>
                                     </div>
                                     <div class="col-md-9">
-                                        <input autofocus="autofocus" class="email gray-input" id="Email" name="Email" value="" type="text">
+                                        <input autofocus="autofocus" class="email gray-input" id="username" name="username" type="text">
                                     </div>
                                     <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
                                 </div>
@@ -85,20 +85,13 @@
                                         </div>
                                     </div>
                                     <div class="col-md-9">
-                                        <input class="password gray-input" id="Password" name="Password" type="password">
+                                        <input class="password gray-input" id="Password" name="password" type="password">
                                     </div>
                                     <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
                                 </div>
-                                <div class="form-group reversed">
-                                    <input id="RememberMe" name="RememberMe" value="true" type="checkbox">
-                                    <input name="RememberMe" value="false" type="hidden">
-                                    <label for="RememberMe">Ricordami?</label>
-                                    <span class="forgot-password">
-                                        <a href="">Password dimenticata?</a>
-                                    </span>
-                                </div>
+                                <?php if($_GET['err'] == 1) echo "<p style='color: red'>Username e/o Password errati!</p>"?>
                                 <div class="buttons">
-                                    <input class="button-1 login-button btn btn-primary" value="Log in" type="submit">
+                                    <input class="button-1 login-button btn btn-primary" value="Log in" type="submit" name="login">
                                 </div>
                             </form>
                         </div>
