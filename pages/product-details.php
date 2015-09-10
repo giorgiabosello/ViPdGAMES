@@ -32,8 +32,11 @@ if(isset($_POST["qt"])){
         <link href="../css/animate.css" rel="stylesheet">
         <link href="../css/main.css" rel="stylesheet">
         <link href="../css/responsive.css" rel="stylesheet">
+        <link href="../css/star-rating.min.css" rel="stylesheet">
+        
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="../js/star-rating.min.js"></script>
         <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -222,7 +225,6 @@ if(isset($_POST["qt"])){
                                     <p>Codice:
                                         <?php echo "$line[codice]"?>
                                     </p>
-                                    <img src="../images/product-details/rating.png" alt="" />
                                     <span>
 									<span>€<?php echo "$line[prezzo]"?></span>
 
@@ -250,6 +252,11 @@ if(isset($_POST["qt"])){
                                     </p>
                                     <a href=""><img src="../images/product-details/share.png" class="share img-responsive" alt="" />
                                     </a>
+                                    <hr>
+                                    <div>
+                                        <label>Valutazione degli utenti:</label>
+                                        <input id="input-2a" class="rating" value="4" data-min="0" data-max="5" data-step="0.5" data-stars=5 data-size="xs" data-show-clear="false" data-show-caption="false">
+                                        </div>
                                     </form>
                                 </div>
                                 <!--/product-information-->
