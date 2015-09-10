@@ -36,6 +36,13 @@
     <!--/navbar-->
 
     <div id="contact-page" class="container">
+        <div class="breadcrumbs">
+                <ol class="breadcrumb">
+                    <li><a href="index.php">Home</a>
+                    </li>
+                    <li class="active">Contattaci</li>
+                </ol>
+            </div>
             <div class="row">
                 <div class="col-sm-12">
                     <h2 class="title text-center">Contatti</h2>

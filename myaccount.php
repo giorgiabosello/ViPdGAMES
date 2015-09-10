@@ -37,6 +37,13 @@
 
     <section>
         <div class="container">
+            <div class="breadcrumbs">
+                <ol class="breadcrumb">
+                    <li><a href="index.php">Home</a>
+                    </li>
+                    <li class="active">Account</li>
+                </ol>
+            </div>
             <div class="row">
                 <div class="row">
                     <div class="col-sm-12">

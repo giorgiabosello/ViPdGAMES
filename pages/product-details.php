@@ -59,6 +59,13 @@ if(isset($_POST["qt"])){
 
         <section>
             <div class="container">
+                <div class="breadcrumbs">
+                <ol class="breadcrumb">
+                    <li><a href="index.php">Home</a>
+                    </li>
+                    <li class="active">Dettagli Prodotto</li>
+                </ol>
+            </div>
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="left-sidebar">
@@ -178,21 +185,6 @@ if(isset($_POST["qt"])){
                                         </div>
                                     </div>
                                 </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">In Offerta</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Nuovi Arrivi</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Usato</a></h4>
-                                    </div>
-                                </div>
                             </div>
                             <!--/category-products-->
 
@@ -213,7 +205,6 @@ if(isset($_POST["qt"])){
                             <div class="col-sm-5">
                                 <div class="view-product">
                                     <img src="../pages<?php echo " $line[path] "?>" class="games-preview img-responsive" alt="" />
-                                    <h3>ZOOM</h3>
                                 </div>
                             </div>
                             <div class="col-sm-7">

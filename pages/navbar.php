@@ -77,13 +77,9 @@
                         <ul class="nav navbar-nav">
                             <li><a href="../myaccount.php"><i class="fa fa-user"></i> Account</a>
                             </li>
-                            <li><a href="#"><i class="fa fa-star"></i> Lista Desideri</a>
-                            </li>
                             <li><a href="../checkout.php"><i class="fa fa-crosshairs"></i> Checkout</a>
                             </li>
                             <li><a href="../cart.php"><i class="fa fa-shopping-cart"></i> Carrello</a>
-                            </li>
-                            <li><a href="../login.php"><i class="fa fa-lock"></i> Login</a>
                             </li>
                         </ul>
                     </div>
