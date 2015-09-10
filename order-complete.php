@@ -39,7 +39,7 @@
         <div class="container">
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
-                    <li><a href="index.html">Home</a>
+                    <li><a href="index.php">Home</a>
                     </li>
                     <li class="active">Ordine completato</li>
                 </ol>
@@ -156,10 +156,10 @@
 
     <!-- Script js -->
     <script>
-        $("#footer").load("footer.html");
+        $("#footer").load("footer.php");
     </script>
     <script>
-        $("#navbar").load("navbar.html");
+        $("#navbar").load("navbar.php");
     </script>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>

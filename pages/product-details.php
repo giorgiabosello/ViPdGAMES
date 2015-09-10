@@ -293,6 +293,7 @@ if(isset($_POST["qt"])){
 
                             <div class="recommended_items">
                                 <!--recommended_items-->
+                                <br>
                                 <h2 class="title text-center">Giochi raccomandati</h2>
 
                                 <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
@@ -401,10 +402,10 @@ if(isset($_POST["qt"])){
 
         <!-- Script js -->
         <script>
-            $("#footer").load("footer.html");
+            $("#footer").load("footer.php");
         </script>
         <script>
-            $("#navbar").load("navbar.html");
+            $("#navbar").load("navbar.php");
         </script>
         <script src="../js/jquery.js"></script>
         <script src="../js/jquery.scrollUp.min.js"></script>

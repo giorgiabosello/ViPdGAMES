@@ -41,7 +41,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href="../index.html"><img src="../images/home/logo.png" alt="Logo" />
+                        <a href="index.php"><img src="images/home/logo.png" alt="Logo" />
                         </a>
                     </div>
                     <div class="btn-group pull-right">
@@ -75,15 +75,15 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="../myaccount.html"><i class="fa fa-user"></i> Account</a>
+                            <li><a href="myaccount.php"><i class="fa fa-user"></i> Account</a>
                             </li>
                             <li><a href="#"><i class="fa fa-star"></i> Lista Desideri</a>
                             </li>
-                            <li><a href="../checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a>
+                            <li><a href="checkout.php"><i class="fa fa-crosshairs"></i> Checkout</a>
                             </li>
-                            <li><a href="../cart.html"><i class="fa fa-shopping-cart"></i> Carrello</a>
+                            <li><a href="cart.php"><i class="fa fa-shopping-cart"></i> Carrello</a>
                             </li>
-                            <li><a href="../login.html"><i class="fa fa-lock"></i> Login</a>
+                            <li><a href="login.php"><i class="fa fa-lock"></i> Login</a>
                             </li>
                         </ul>
                     </div>
@@ -108,21 +108,21 @@
                     </div>
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="../index.html" class="active">Home</a>
+                            <li><a href="index.php" class="active">Home</a>
                             </li>
                             <li class="dropdown"><a href="#">Negozio<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="../shop.html">Prodotti</a>
+                                    <li><a href="shop.php">Prodotti</a>
                                     </li>
-                                    <li><a href="../checkout.html">Checkout</a>
+                                    <li><a href="checkout.php">Checkout</a>
                                     </li>
-                                    <li><a href="../cart.html">Carrello</a>
+                                    <li><a href="cart.php">Carrello</a>
                                     </li>
-                                    <li><a href="../login.html">Login</a>
+                                    <li><a href="login.php">Login</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="../contact-us.html">Contatti</a>
+                            <li><a href="contact-us.php">Contatti</a>
                             </li>
                         </ul>
                     </div>
@@ -132,7 +132,7 @@
                         <div class="input-group">
                             <input type="search" placeholder="Cerca" class="form-control" />
                             <div class="input-group-btn ">
-                                <a class="btn btn-default" href="../search.html">
+                                <a class="btn btn-default" href="search.php">
                                     <span class="fa fa-search"></span>
                                 </a>
                             </div>

@@ -39,7 +39,7 @@
         <div class="container">
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
-                    <li><a href="index.html">Home</a>
+                    <li><a href="index.php">Home</a>
                     </li>
                     <li class="active">Check out</li>
                 </ol>
@@ -258,7 +258,7 @@
                 <span>
 						<label><input type="checkbox"> Contrassegno</label>
 					</span>
-                <a class="btn btn-primary pull-right" href="order-complete.html">Prosegui</a>
+                <a class="btn btn-primary pull-right" href="order-complete.php">Prosegui</a>
             </div>
         </div>
     </section>
@@ -272,10 +272,10 @@
 
     <!-- Script js -->
     <script>
-        $("#footer").load("footer.html");
+        $("#footer").load("footer.php");
     </script>
     <script>
-        $("#navbar").load("navbar.html");
+        $("#navbar").load("navbar.php");
     </script>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>

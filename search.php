@@ -127,21 +127,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="#">In Offerta</a></h4>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="#">Nuovi Arrivi</a></h4>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="#">Usato</a></h4>
-                                </div>
-                            </div>
                         </div>
                         <!--/category-products-->
                     </div>
@@ -214,10 +199,10 @@
 
     <!-- Script js -->
     <script>
-        $("#footer").load("footer.html");
+        $("#footer").load("footer.php");
     </script>
     <script>
-        $("#navbar").load("navbar.html");
+        $("#navbar").load("navbar.php");
     </script>
     <script src="js/jquery.js"></script>
     <script src="js/price-range.js"></script>

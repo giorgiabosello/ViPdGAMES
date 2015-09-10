@@ -107,10 +107,10 @@
 
     <!-- Script js -->
     <script>
-        $("#footer").load("footer.html");
+        $("#footer").load("footer.php");
     </script>
     <script>
-        $("#navbar").load("navbar.html");
+        $("#navbar").load("navbar.php");
     </script>
     <script>
         function change() {

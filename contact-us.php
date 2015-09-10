@@ -105,10 +105,10 @@
 
     <!-- Script js -->
     <script>
-        $("#footer").load("footer.html");
+        $("#footer").load("footer.php");
     </script>
     <script>
-        $("#navbar").load("navbar.html");
+        $("#navbar").load("navbar.php");
     </script>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>

@@ -53,7 +53,7 @@
                         Creando un account sul nostro sito, sarai in grado di comprare più velocemente, controllare lo stato e lo storico dei tuoi ordini.
                     </div>
                     <div class="buttons" style="margin-top:80px">
-                        <input class="button-1 register-button btn btn-primary " onclick="location.href='register.html'" value="Registrati" type="button">
+                        <input class="button-1 register-button btn btn-primary " onclick="location.href='register.php'" value="Registrati" type="button">
                     </div>
                 </div>
             </div>
@@ -116,10 +116,10 @@
 
     <!-- Script js -->
     <script>
-        $("#footer").load("footer.html");
+        $("#footer").load("footer.php");
     </script>
     <script>
-        $("#navbar").load("navbar.html");
+        $("#navbar").load("navbar.php");
     </script>
     <script src="js/jquery.js"></script>
     <script src="js/jquery.scrollUp.min.js"></script>

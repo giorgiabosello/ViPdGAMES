@@ -9,7 +9,7 @@
                         <ul class="nav nav-pills nav-stacked">
                             <li><a href="#">Online Help</a>
                             </li>
-                            <li><a href="contact-us.html">Contatti</a>
+                            <li><a href="contact-us.php">Contatti</a>
                             </li>
                             <li><a href="#">Stato Ordine</a>
                             </li>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Online Videogames Shopping Center">
     <meta name="author" content="ViPd GAMES">
-    <title>Negozio | ViPd GAMES</title>
+    <title>Home | ViPd GAMES</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -28,11 +28,79 @@
 <!--/head-->
 
 <body>
+
     <!--navbar-->
 
     <div id="navbar"></div>
 
     <!--/navbar-->
+
+    <section id="slider">
+        <!--slider-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#slider-carousel" data-slide-to="1"></li>
+                            <li data-target="#slider-carousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="col-sm-6">
+                                    <h1><span>ViPd</span> GAMES</h1>
+                                    <h2>The Last Of Us</h2>
+                                    <p>Solo per oggi, solo su ViPd GAMES, in offerta a 25€! </p>
+                                    <button type="button" class="btn btn-default get">Ordinalo ora!</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <img src="images/games/thelastofus.jpg" class="girl img-responsive slider-home" alt="" />
+                                    <img src="images/home/pricing.png" class="pricing" alt="" />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-sm-6">
+                                    <h1><span>ViPd</span> GAMES</h1>
+                                    <h2>GTA IV</h2>
+                                    <p>Solo per oggi, solo su ViPd GAMES, in offerta a 25€! </p>
+                                    <button type="button" class="btn btn-default get">Ordinalo ora!</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <img src="images/games/gta4.jpg" class="girl img-responsive slider-home" alt="" />
+                                    <img src="images/home/pricing.png" class="pricing" alt="" />
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="col-sm-6">
+                                    <h1><span>ViPd</span> GAMES</h1>
+                                    <h2>Watch Dogs</h2>
+                                    <p>Solo per oggi, solo su ViPd GAMES, in offerta a 25€! </p>
+                                    <button type="button" class="btn btn-default get">Ordinalo ora!</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <img src="images/games/watchdogs.jpg" class="girl img-responsive slider-home" alt="" />
+                                    <img src="images/home/pricing.png" class="pricing" alt="" />
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/slider-->
 
     <section>
         <div class="container">
@@ -127,6 +195,10 @@
                                 </div>
                             </div>
                         </div>
+                        <!--/category-products-->
+
+
+
                         <div class="shipping text-center">
                             <!--shipping-->
                             <img src="images/home/shipping.jpg" alt="" />
@@ -139,78 +211,77 @@
                 <div class="col-sm-9 padding-right">
                     <div class="features_items">
                         <!--features_items-->
-                        <h2 class="title text-center">Negozio</h2>
+                        <h2 class="title text-center">I nostri giochi</h2>
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="http://placehold.it/268x249" class="games img-responsive" alt="" />
+                                        <img src="images/games/assassinscreed2.jpg" class="games img-responsive" alt="" />
+                                        <h2>€50</h2>
+                                        <p>Assassin's Creed II</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
+                                    </div>
+                                    <div class="product-overlay">
+                                        <div class="overlay-content">
+                                            <h2>€50</h2>
+                                            <p>Assassin's Creed II</p>
+                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="images/games/batmanarkhamcity.jpg" class="games img-responsive" alt="" />
+                                        <h2>€49</h2>
+                                        <p>Batman - Arkham City</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
+                                    </div>
+                                    <div class="product-overlay">
+                                        <div class="overlay-content">
+                                            <h2>€49</h2>
+                                            <p>Batman - Arkham City</p>
+                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="images/games/gta5.jpg" class="games img-responsive" alt="" />
                                         <h2>€70</h2>
-                                        <p>FIFA 16</p>
+                                        <p>GTA V</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
                                     </div>
                                     <div class="product-overlay">
                                         <div class="overlay-content">
                                             <h2>€70</h2>
+                                            <p>GTA V</p>
+                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="images/games/fifa16.jpg" class="games img-responsive" alt="" />
+                                        <h2>€75</h2>
+                                        <p>FIFA 16</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
+                                    </div>
+                                    <div class="product-overlay">
+                                        <div class="overlay-content">
+                                            <h2>€75</h2>
                                             <p>FIFA 16</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="http://placehold.it/268x249" class="games img-responsive" alt="" />
-                                        <h2>€25</h2>
-                                        <p>Watch Dogs</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
-                                    </div>
-                                    <div class="product-overlay">
-                                        <div class="overlay-content">
-                                            <h2>€25</h2>
-                                            <p>Watch Dogs</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
-                                        </div>
-                                    </div>
-                                    <img src="images/home/sale.png" class="new" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="http://placehold.it/268x249" class="games img-responsive" alt="" />
-                                        <h2>€49</h2>
-                                        <p>MotoGP 15</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
-                                    </div>
-                                    <div class="product-overlay">
-                                        <div class="overlay-content">
-                                            <h2>€49</h2>
-                                            <p>MotoGP 15</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="http://placehold.it/268x249" class="games img-responsive" alt="" />
-                                        <h2>€49</h2>
-                                        <p>Assassin's Creed III</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
-                                    </div>
-                                    <div class="product-overlay">
-                                        <div class="overlay-content">
-                                            <h2>€49</h2>
-                                            <p>Assassin's Creed III</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
                                         </div>
                                     </div>
@@ -222,15 +293,15 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="http://placehold.it/268x249" class="games img-responsive" alt="" />
-                                        <h2>€25</h2>
-                                        <p>The Last Of Us</p>
+                                        <img src="images/games/fifa15.jpg" class="games img-responsive" alt="" />
+                                        <h2>€35</h2>
+                                        <p>FIFA15</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
                                     </div>
                                     <div class="product-overlay">
                                         <div class="overlay-content">
-                                            <h2>€25</h2>
-                                            <p>The Last Of Us</p>
+                                            <h2>€35</h2>
+                                            <p>FIFA15</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
                                         </div>
                                     </div>
@@ -243,33 +314,21 @@
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         <img src="http://placehold.it/268x249" class="games img-responsive" alt="" />
-                                        <h2>€35</h2>
-                                        <p>MotoGP 14</p>
+                                        <h2>€56</h2>
+                                        <p>Call Of Duty</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
                                     </div>
                                     <div class="product-overlay">
                                         <div class="overlay-content">
-                                            <h2>€35</h2>
-                                            <p>MotoGP 14</p>
+                                            <h2>€56</h2>
+                                            <p>Call Of Duty</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <ul class="pagination">
-                            <li class="active"><a href="">1</a>
-                            </li>
-                            <li><a href="">2</a>
-                            </li>
-                            <li><a href="">3</a>
-                            </li>
-                            <li><a href="">&raquo;</a>
-                            </li>
-                        </ul>
                     </div>
-                    <!--features_items-->
                 </div>
             </div>
         </div>
@@ -281,14 +340,14 @@
 
     <!-- Script js -->
     <script>
-        $("#footer").load("footer.html");
+        $("#footer").load("footer.php");
     </script>
     <script>
-        $("#navbar").load("navbar.html");
+        $("#navbar").load("navbar.php");
     </script>
     <script src="js/jquery.js"></script>
-    <script src="js/jquery.scrollUp.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
 </body>

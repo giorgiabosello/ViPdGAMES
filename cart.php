@@ -39,7 +39,7 @@
         <div class="container">
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
-                    <li><a href="#">Home</a>
+                    <li><a href="index.php">Home</a>
                     </li>
                     <li class="active">Carrello</li>
                 </ol>
@@ -225,7 +225,7 @@
                             </li>
                         </ul>
                         <a class="btn btn-default update" href="">Aggiorna</a>
-                        <a class="btn btn-default check_out" href="checkout.html">Check Out</a>
+                        <a class="btn btn-default check_out" href="checkout.php">Check Out</a>
                     </div>
                 </div>
             </div>
@@ -239,10 +239,10 @@
 
     <!-- Script js -->
     <script>
-        $("#footer").load("footer.html");
+        $("#footer").load("footer.php");
     </script>
     <script>
-        $("#navbar").load("navbar.html");
+        $("#navbar").load("navbar.php");
     </script>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
