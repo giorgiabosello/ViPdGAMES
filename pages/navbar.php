@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <header id="header">
     <!--header-->
     <div class="header_top">
@@ -41,7 +45,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href="../index.php"><img src="../images/home/logo.png" alt="Logo" />
+                        <a href="index.php"><img src="images/home/logo.png" alt="Logo" />
                         </a>
                     </div>
                     <div class="btn-group pull-right">
@@ -75,11 +79,13 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="../myaccount.php"><i class="fa fa-user"></i> Account</a>
+                            <li <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "style=\"display: none\""; ?>><a href="myaccount.php"><i class="fa fa-user"></i> Account</a>
                             </li>
-                            <li><a href="../checkout.php"><i class="fa fa-crosshairs"></i> Checkout</a>
+                            <li><a href="checkout.php"><i class="fa fa-crosshairs"></i> Checkout</a>
                             </li>
-                            <li><a href="../cart.php"><i class="fa fa-shopping-cart"></i> Carrello</a>
+                            <li><a href="cart.php"><i class="fa fa-shopping-cart"></i> Carrello</a>
+                            </li>
+                            <li><a href="login.php"><i class="fa fa-lock"></i> Login</a>
                             </li>
                         </ul>
                     </div>
@@ -104,21 +110,19 @@
                     </div>
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="../index.php" class="active">Home</a>
+                            <li><a href="index.php" class="active">Home</a>
                             </li>
                             <li class="dropdown"><a href="#">Negozio<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="../shop.php">Prodotti</a>
+                                    <li><a href="shop.php">Prodotti</a>
                                     </li>
-                                    <li><a href="../checkout.php">Checkout</a>
+                                    <li><a href="checkout.php">Checkout</a>
                                     </li>
-                                    <li><a href="../cart.php">Carrello</a>
-                                    </li>
-                                    <li><a href="../login.php">Login</a>
+                                    <li><a href="cart.php">Carrello</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="../contact-us.php">Contatti</a>
+                            <li><a href="contact-us.php">Contatti</a>
                             </li>
                         </ul>
                     </div>
