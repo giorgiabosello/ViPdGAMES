@@ -215,15 +215,15 @@ if(isset($_POST["qt"])){
                                     <img src="../images/product-details/new.jpg" class="newarrival" alt="" />
                                     <h2><?php echo "$line[titolo]"?></h2>
                                     <p>Codice:
-                                        <?php echo "$line[codice]"?>
+                                        <input type="text" value="<?php echo "$line[codice]"; ?>" name="$cod" disabled style="text-align: center"/>
                                     </p>
                                     <span>
 									<span>€<?php echo "$line[prezzo]"?></span>
 
                                             <label>Quantity:</label>
-                                            <input <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] == 0) echo "disabled"; ?> type="text" value="1" name="qt"/>
-                                            <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] == 0) echo "<p style='color: red'></br>Per ordinare devi essere registrato</p>"; ?>
-                                            <button <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] == 0) echo "disabled"; ?> type="submit" class="btn btn-default cart" >
+                                            <input <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "disabled"; ?> type="text" value="1" name="qt"/>
+                                            <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "<p style='color: red'></br>Per ordinare devi essere registrato</p>"; ?>
+                                            <button <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "disabled"; ?> type="submit" class="btn btn-default cart" >
                                                 <i class="fa fa-shopping-cart"></i> Acquista
                                             </button>
 
