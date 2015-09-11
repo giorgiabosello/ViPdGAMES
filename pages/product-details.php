@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start();
 $codice='1001' ; //PER MICHELE: Inserisci qui il codice tra virgolette del gioco che dev 'essere identico al record nel DB
 require_once("../config/config.db.php"); //importo il file con connessione
 $query = "SELECT * FROM videogiochi WHERE codice = '$codice'"; //Query per dati del gioco
@@ -220,9 +221,9 @@ if(isset($_POST["qt"])){
 									<span>€<?php echo "$line[prezzo]"?></span>
 
                                             <label>Quantity:</label>
-                                            <input <?php if(!isset($_SESSION["login"])) echo "disabled"; ?> type="text" value="1" name="qt"/>
-                                            <?php if(!isset($_SESSION["login"])) echo "<p style='color: red'></br>Per ordinare devi essere registrato</p>"; ?>
-                                            <button <?php if(!isset($_SESSION["login"])) echo "disabled"; ?> type="submit" class="btn btn-default cart" >
+                                            <input <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] == 0) echo "disabled"; ?> type="text" value="1" name="qt"/>
+                                            <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] == 0) echo "<p style='color: red'></br>Per ordinare devi essere registrato</p>"; ?>
+                                            <button <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] == 0) echo "disabled"; ?> type="submit" class="btn btn-default cart" >
                                                 <i class="fa fa-shopping-cart"></i> Acquista
                                             </button>
 
