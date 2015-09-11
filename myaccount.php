@@ -1,10 +1,16 @@
 <?php
 session_start();
 require_once("config/config.db.php");
-$username = $_SESSION["id"];
-$query = "SELECT * FROM utenti WHERE login = '$username'"; //Query per dati dell'utente
-$result = pg_query($dbconn,$query) or die('Query fallita: ' . pg_last_error()); // Risultati $query
-$line = pg_fetch_array($result, null, PGSQL_ASSOC); //Array con i dati di $result
+//se non c'è la sessione registrata
+if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
+    echo '<script language=javascript>document.location.href="login.php?err=2"</script>';
+}
+else{
+    $username = $_SESSION["id"];
+    $query = "SELECT * FROM utenti WHERE login = '$username'"; //Query per dati dell'utente
+    $result = pg_query($dbconn,$query) or die('Query fallita: ' . pg_last_error()); // Risultati $query
+    $line = pg_fetch_array($result, null, PGSQL_ASSOC); //Array con i dati di $result
+}
 ?>
 
 

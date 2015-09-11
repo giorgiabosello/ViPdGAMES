@@ -89,7 +89,9 @@
                                     </div>
                                     <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
                                 </div>
-                                <?php if($_GET['err'] == 1) echo "<p style='color: red'>Username e/o Password errati!</p>"?>
+                                <?php
+                                if($_GET['err'] == 1) echo "<p style='color: red'>Username e/o Password errati!</p>";
+                                if($_GET['err'] == 2) echo "<p style='color: red'>Area riservata, effettua il login!</p>"; ?>
                                 <div class="buttons">
                                     <input class="button-1 login-button btn btn-primary" value="Log in" type="submit" name="login">
                                 </div>
