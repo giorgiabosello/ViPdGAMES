@@ -79,11 +79,11 @@ session_start();
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "style=\"display: none\""; ?>><a href="myaccount.php"><i class="fa fa-user"></i> Account</a>
+                            <li <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "style=\"display: none\""; ?>><a href="../myaccount.php"><i class="fa fa-user"></i> Account</a>
                             </li>
-                            <li><a href="cart.php"><i class="fa fa-shopping-cart"></i> Carrello</a>
+                            <li><a href="../cart.php"><i class="fa fa-shopping-cart"></i> Carrello</a>
                             </li>
-                            <li><a href="checkout.php"><i class="fa fa-crosshairs"></i> Checkout</a>
+                            <li><a href="../checkout.php"><i class="fa fa-crosshairs"></i> Checkout</a>
                             </li>
                             <?php
                             if(isset($_SESSION["auth"]) && $_SESSION["auth"] == 1)
