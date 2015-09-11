@@ -78,12 +78,6 @@ else{
                         </div>
                         <div class="col-sm-7">
                             <div class="panel-body" align="middle">
-                                <p>
-                                    <button class="btn btn-default">Cambia immagine</button>
-                                    <br>
-                                    <br>
-                                </p>
-
                                 <!-- non visibile su layout a bassa risoluzione: hidden-xs -->
 
                                 <div class="purchase-item-details hidden-xs">
@@ -201,8 +195,9 @@ else{
                                     </div>
                                 </div>
 
-                                <p><a class="btn btn-default" href="#" role="button">Modifica informazioni</a>
+                                <p><a class="btn btn-default" href="myaccount_modify.php" role="button">Modifica informazioni</a>
                                 </p>
+                                <?php if($_GET['msg'] == 1) echo "<p style='color: green'> Dati modificati con successo!</p>" ?>
 
                             </div>
 
