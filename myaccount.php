@@ -98,6 +98,10 @@ else{
                                                     <td>e-mail</td>
                                                     <td><?php echo "$line[email]"?></td>
                                                 </tr>
+                                            <tr>
+                                                <td>Telefono</td>
+                                                <td><?php echo "$line[telefono]"?></td>
+                                            </tr>
                                                     <td>Nome</td>
                                                     <td><?php echo "$line[nome]"?></td>
                                                 </tr>
