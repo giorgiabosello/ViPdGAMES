@@ -87,9 +87,9 @@ session_start();
                             </li>
                             <?php
                             if(isset($_SESSION["auth"]) && $_SESSION["auth"] == 1)
-                                echo "<li> <a href=\"../logout.php\"><i class=\"fa fa-lock\"></i> Logout</a></li>";
+                                echo "<li> <a href=\"logout.php\"><i class=\"fa fa-lock\"></i> Logout</a></li>";
                             else
-                                echo "<li> <a href=\"../login.php\"><i class=\"fa fa-lock\"></i> Login</a></li>";
+                                echo "<li> <a href=\"login.php\"><i class=\"fa fa-lock\"></i> Login</a></li>";
                             ?>
                         </ul>
                     </div>
