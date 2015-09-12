@@ -1,9 +1,10 @@
 <?php
 session_start();
-$codice='2001' ; //PER MICHELE: Inserisci qui il codice tra virgolette del gioco che dev 'essere identico al record nel DB
+$codice='2003' ; //PER MICHELE: Inserisci qui il codice tra virgolette del gioco che dev 'essere identico al record nel DB
 require_once("../config/config.db.php"); //importo il file con connessione
-$query = $db->query("SELECT * FROM videogiochi WHERE codice = '$codice'"); //Query per dati del gioco
-$line = $query->fetch(PDO::FETCH_ASSOC);
+$query = "SELECT * FROM videogiochi WHERE codice = '$codice'"; //Query per dati del gioco
+$result = pg_query($dbconn,$query) or die('Query fallita: ' . pg_last_error()); // Risultati $query
+$line = pg_fetch_array($result, null, PGSQL_ASSOC); //Array con i dati di $result
 if(isset($_POST["qt"])){
     if($_POST["qt"] > $line[quantita]){
         $color = red;
@@ -24,7 +25,7 @@ if(isset($_POST["qt"])){
         <meta name="description" content="Online Videogames Shopping Center">
         <meta name="author" content="ViPd GAMES">
         <title>
-            <?php echo "$line[titolo]"?> | ViPd GAMES</title>
+            <?php echo "$line[titolo]"?> GTA V | ViPd GAMES</title>
         <!-- MICHELE qui potresti mettere il nome del gioco al posto di "Dettagli Prodotto" -->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
@@ -104,6 +105,7 @@ if(isset($_POST["qt"])){
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="#accordian" href="#ps4">
+											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
 											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
 											PS4
 										</a>
@@ -214,15 +216,15 @@ if(isset($_POST["qt"])){
                                     <img src="../images/product-details/new.jpg" class="newarrival" alt="" />
                                     <h2><?php echo "$line[titolo]"?></h2>
                                     <p>Codice:
-                                        <input type="text" value="<?php echo "$line[codice]"; ?>" name="$cod" disabled style="text-align: center"/>
+                                        <?php echo "$line[codice]"?>
                                     </p>
                                     <span>
 									<span>€<?php echo "$line[prezzo]"?></span>
 
                                             <label>Quantity:</label>
-                                            <input <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "disabled"; ?> type="text" value="1" name="qt"/>
-                                            <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "<p style='color: red'></br>Per ordinare devi essere registrato</p>"; ?>
-                                            <button <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "disabled"; ?> type="submit" class="btn btn-default cart" >
+                                            <input <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] == 0) echo "disabled"; ?> type="text" value="1" name="qt"/>
+                                            <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] == 0) echo "<p style='color: red'></br>Per ordinare devi essere registrato</p>"; ?>
+                                            <button <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] == 0) echo "disabled"; ?> type="submit" class="btn btn-default cart" >
                                                 <i class="fa fa-shopping-cart"></i> Acquista
                                             </button>
 
@@ -269,9 +271,10 @@ if(isset($_POST["qt"])){
                                 </ul>
                             </div>
                             <div class="tab-content">
+                                <!--Descrizione importata in automatico-->
+                                <?php echo "$line[descrizione]"?>
                                     <div class="tab-pane fade active in" id="description">
-                                        <!--Descrizione importata in automatico-->
-                                        <?php echo "$line[descrizione]"?>
+
                                     </div>
 
                                     <!--Da riempire con requisiti, visibile solo se console==PC-->
