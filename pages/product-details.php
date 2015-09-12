@@ -103,35 +103,6 @@ if(isset($_POST["qt"])){
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#ps4">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											PS4
-										</a>
-									</h4>
-                                    </div>
-                                    <div id="ps4" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <ul>
-                                                <li><a href="#">Azione/Avventura</a>
-                                                </li>
-                                                <li><a href="#">RPG</a>
-                                                </li>
-                                                <li><a href="#">Simulazione</a>
-                                                </li>
-                                                <li><a href="#">Sparatutto</a>
-                                                </li>
-                                                <li><a href="#">Sport</a>
-                                                </li>
-                                                <li><a href="#">Strategia</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="#accordian" href="#xbox">
 											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
 											PS3
