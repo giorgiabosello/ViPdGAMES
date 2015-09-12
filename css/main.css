@@ -196,7 +196,6 @@ a#scrollUp i {
 }
 
 .shop-menu ul li a {
-    background: #FFFFFF;
     color: #696763;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
@@ -213,6 +212,21 @@ a#scrollUp i {
 .shop-menu ul li a:hover {
     color: #fe980f;
     background: #fff;
+}
+
+.dropdown .dropdown-toggle {
+    color: #696763;
+}
+.dropdown .dropdown-toggle:hover {
+    color: #fe980f;
+}
+
+.dropdown .dropdown-menu li a {
+    color: #FFFFFF;
+}
+.dropdown .dropdown-menu li a:hover {
+    background: none;
+    color: #fe980f;
 }
 
 .header-bottom {
