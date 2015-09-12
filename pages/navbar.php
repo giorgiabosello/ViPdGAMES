@@ -79,7 +79,7 @@ session_start();
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li class="dropdown"><?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "style=\"display: none\""; ?><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Account</a>
+                            <li class="dropdown" <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "style=\"display: none\""; ?>><a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Account</a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="../myaccount.php">Dati Account</a>
                                     </li>
