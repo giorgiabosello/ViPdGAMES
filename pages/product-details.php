@@ -1,6 +1,6 @@
 <?php
 session_start();
-$codice='2001' ; //PER MICHELE: Inserisci qui il codice tra virgolette del gioco che dev 'essere identico al record nel DB
+$codice='10' ; //PER MICHELE: Inserisci qui il codice tra virgolette del gioco che dev 'essere identico al record nel DB
 require_once("../config/config.db.php"); //importo il file con connessione
 $query = $db->query("SELECT * FROM videogiochi WHERE codice = '$codice'"); //Query per dati del gioco
 $line = $query->fetch(PDO::FETCH_ASSOC);
@@ -180,7 +180,7 @@ if(isset($_POST["qt"])){
                             </div>
                             <div class="col-sm-7">
                                 <div class="product-information">
-                                    <form method="post">
+                                    <form method="post" action="../config/carrello_add.php">
                                     <!--/product-information-->
                                     <img src="../images/product-details/new.jpg" class="newarrival" alt="" />
                                     <h2><?php echo "$line[titolo]"?></h2>
@@ -199,9 +199,7 @@ if(isset($_POST["qt"])){
 
                                     </span>
                                     <?php
-                                    if(isset($_POST["qt"])){
-                                        echo "<p style='color: $color'>$string</p>";
-                                    }
+                                    //per conferma aggiunta al carrello
                                     ?>
                                     <p><b>Disponibilità: </b>
                                         <?php echo "$line[quantita]"?>
