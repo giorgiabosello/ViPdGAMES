@@ -1,3 +1,14 @@
+<?php
+session_start();
+require_once("config/config.db.php"); //importo il file con connessione
+if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
+    echo '<script language=javascript>document.location.href="../login.php?err=2"</script>';
+}
+if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1){
+    echo '<script language=javascript>document.location.href="myaccount.php?msg=2"</script>';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 
@@ -56,10 +67,10 @@
                         <div class="status alert alert-success" style="display: none"></div>
                         <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
                             <div class="form-group col-md-6">
-                                <input type="text" name="code" class="form-control" required="required" placeholder="CODICE">
+                                <input type="text" name="titolo" class="form-control" required="required" placeholder="Titolo">
                             </div>
                             <div class="form-group col-md-6">
-                                <select class="form-control" required="required">
+                                <select class="form-control" required="required" name="categoria">
                                     <option value='' disabled selected style='display:none;'>Categoria</option>
                                     <option>Azione/Avventura</option>
                                     <option>RPG</option>
@@ -69,11 +80,9 @@
                                     <option>Strategia</option>
                                 </select>
                             </div>
+                            <div class="form-group col-md-6"></div>
                             <div class="form-group col-md-6">
-                                <input type="text" name="title" class="form-control" required="required" placeholder="Titolo">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <select id="show" class="form-control" required="required" onchange="change()">
+                                <select name="console" id="show" class="form-control" required="required" onchange="change()">
                                     <option value='' disabled selected style='display:none;'>Console</option>
                                     <option value="1">PC</option>
                                     <option value="2">PS3</option>
@@ -82,20 +91,20 @@
                             </div>
                             <div class="col-md-12">
                                 <!-- text area -->
-                                <textarea id="text_area" name="message" class="form-control" type="text" placeholder="Requisiti di sistema" rows="8" style="display: none"></textarea>
+                                <textarea id="text_area" name="descrizione" class="form-control" type="text" placeholder="Descrizione" rows="8""></textarea>
                                 <br>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" name="development" class="form-control" required="required" placeholder="Sviluppo">
+                                <input type="text" name="sviluppatore" class="form-control" required="required" placeholder="Sviluppatore">
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" name="release" class="form-control" required="required" placeholder="Rilascio">
+                                <input type="text" name="path" class="form-control" required="required" placeholder="Path Immagine">
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" name="price" class="form-control" required="required" placeholder="Prezzo">
+                                <input type="text" name="prezzo" class="form-control" required="required" placeholder="Prezzo">
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" name="quantity" class="form-control" required="required" placeholder="Quantità">
+                                <input type="text" name="quantita" class="form-control" required="required" placeholder="Quantità">
                             </div>
                             <div class="form-group col-md-12">
                                 <input type="submit" name="submit" class="btn btn-primary pull-right" value="Inserisci">
