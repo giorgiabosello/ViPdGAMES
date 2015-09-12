@@ -10,3 +10,9 @@ MICHELE
 APU
 - Spero per il tuo bene che tu stia facendo le pagine dei giochi e che tu ti sia solo dimenticato di sincronizzare GitHub...
 - Prepara gli schemi ad oggetti e relazionale, sulla base delle query che michele ha caricato nella cartella condivisa su dropbox, poi appena aggiorna le query li sistemi, ma intanto prepara la base.
+
+JOHN
+- Gestione carrello e checkout.
+- Cancellazione ordine.
+- Storico ordini
+- Accesso con login di amministratore: Inserimento e modifica dei dati, degli utenti e degli ordini.
