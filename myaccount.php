@@ -198,7 +198,11 @@ else{
                                 <p><a class="btn btn-default" href="myaccount_modify.php" role="button">Modifica informazioni</a>
                                 </p>
                                 <?php if($_GET['msg'] == 1) echo "<p style='color: green'> Dati modificati con successo!</p>" ?>
+<<<<<<< HEAD
                                 <?php if($_GET['msg'] == 2) echo "<p style='color: red'> Spiacente non sei un admin!</p>" ?>
+=======
+                                <?php if($_GET['msg'] == 2) echo "<p style='color: red'> Solo gli admin possono inserire nuovi giochi!</p>" ?>
+>>>>>>> 23a48a7ad4b5c395f1fe23d75019526e17590b36
 
                             </div>
 

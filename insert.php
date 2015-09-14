@@ -95,7 +95,11 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1){
                             </div>
                             <div class="col-md-12">
                                 <!-- text area -->
+<<<<<<< HEAD
                                 <textarea id="text_area" name="descr" class="form-control" type="text" placeholder="Descrizione" rows="8""></textarea>
+=======
+                                <textarea id="text_area" name="descrizione" class="form-control" type="text" placeholder="Descrizione" rows="8""></textarea>
+>>>>>>> 23a48a7ad4b5c395f1fe23d75019526e17590b36
                                 <br>
                             </div>
                             <div class="form-group col-md-6">
@@ -108,7 +112,11 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1){
                                 <input type="text" name="prezzo" class="form-control" required="required" placeholder="Prezzo">
                             </div>
                             <div class="form-group col-md-6">
+<<<<<<< HEAD
                                 <input type="text" name="qt" class="form-control" required="required" placeholder="Quantità">
+=======
+                                <input type="text" name="quantita" class="form-control" required="required" placeholder="Quantità">
+>>>>>>> 23a48a7ad4b5c395f1fe23d75019526e17590b36
                             </div>
                             <div class="form-group col-md-12">
                                 <input type="submit" name="submit" class="btn btn-primary pull-right" value="Inserisci">

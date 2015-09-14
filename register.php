@@ -1,3 +1,10 @@
+<?php
+session_start();
+require_once("config/config.db.php"); //importo il file con connessione
+if (isset($_SESSION["auth"]) || $_SESSION["auth"] == 1){
+    echo '<script language=javascript>document.location.href="myaccount.php?msg=3"</script>';
+}
+?>
 <!DOCTYPE html>
 <html lang="it">
 
@@ -6,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Online Videogames Shopping Center">
     <meta name="author" content="ViPd GAMES">
-    <title>Login | ViPd GAMES</title>
+    <title>Register | ViPd GAMES</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -52,7 +59,7 @@
         </div>
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2">
-                <form novalidate="novalidate" action="/register" method="post">
+                <form novalidate="novalidate" action="/config/newuser.php" method="post">
                     <input name="__RequestVerificationToken" value="lPfe7IL4E9KcTgH-u3gUFG1qELDzpcfbGJWNMn9HyGbocrog_NTTh1oTmNCbbYvrKGp-yrui8gCOgtTgukquC-NUkbWVZyqP4owj5SZem7o1" type="hidden">
                     <div class="features_items my-account-page">
                         <!--features_items-->
@@ -63,22 +70,13 @@
                                 <div id="legend">
                                     <legend class="">I tuoi dettagli personali</legend>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-md-2">Sesso:</label>
-                                    <div class="col-md-9">
-                                        <input id="gender-male" name="Gender" value="M" type="radio">
-                                        <label class="forcheckbox  " for="gender-male">Uomo</label>
-                                        <input id="gender-female" name="Gender" value="F" type="radio">
-                                        <label class="forcheckbox  " for="gender-female">Donna</label>
-                                    </div>
-                                </div>
                                 <div class="form-group row ">
                                     <div class="col-md-2">
 
                                         <label class="" for="FirstName">Nome:</label>
                                     </div>
                                     <div class="col-md-6 ">
-                                        <input class="gray-input" data-val="true" data-val-required="First name is required." id="FirstName" name="FirstName" value="" type="text">
+                                        <input class="gray-input" data-val="true" data-val-required="First name is required." id="FirstName" name="nome" value="" type="text">
                                     </div>
                                     <div class="col-md-4">
                                         <span class="required">*</span>

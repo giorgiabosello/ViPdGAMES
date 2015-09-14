@@ -79,8 +79,12 @@ session_start();
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
+<<<<<<< HEAD
                             <li class="dropdown" <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "style=\"display: none\""; ?>><a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
                                     <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "Account"; else echo "$_SESSION[id]"; ?></a>
+=======
+                            <li class="dropdown" <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "style=\"display: none\""; ?>><a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Account</a>
+>>>>>>> 23a48a7ad4b5c395f1fe23d75019526e17590b36
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="../myaccount.php">Dati Account</a>
                                     </li>
