@@ -85,11 +85,11 @@ session_start();
                                     </li>
                                     <li><a href="../storico.php">Storico Ordini</a>
                                     </li>
-                                    <li><a href="../insert.php">Nuovo Inserimento</a>
+                                    <li <?php if(!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1) echo "style=\"display: none\""; ?>><a href="../insert.php">Nuovo Inserimento</a>
                                     </li>
-                                    <li><a href="../userlist.php">Elenco Utenti</a>
+                                    <li <?php if(!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1) echo "style=\"display: none\""; ?>><a href="../userlist.php">Elenco Utenti</a>
                                     </li>
-                                    <li><a href="../orderslist.php">Elenco Ordini</a>
+                                    <li <?php if(!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1) echo "style=\"display: none\""; ?>><a href="../orderslist.php">Elenco Ordini</a>
                                     </li>
                                 </ul>
                             </li>
