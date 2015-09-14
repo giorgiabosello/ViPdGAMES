@@ -1,15 +1,8 @@
 GIORGIA
-- navbar.php: Ho bisogno che su mouse hover alla scritta 'Account' scenda un menù con le voci Dati Account, Storico Ordini ,Nuovo Inserimento, Elenco Utenti ed Elenco Ordini(le ultime 3 poi le attiverò io solo in caso di login come admin).
-- Storico Ordini: Mi serve solamente che tu mi predisponga una tabella qualsiasi con le colonne pari alle colonne della tabella ordini.
-- Nuovo Inserimento: Come per la pagina di registrazione, ma i campi devono ovviamente essere quelli che andranno a comporre un nuovo videogioco.
-- Elenco Utenti ed Elenco Ordini: Anche qui mi basta una tabella per ciascuno, una con colonne pari ai dati degli utenti, laltra con i dati degli ordini.
+-Grande Giorgia!!!
 
 MICHELE
 - Sistema anche le stringhe delle descrizioni, ho provato a cercare anche io qualcosa online, e facendo l'escape(con \) prima degli apostrofi dovrebbe funzionare.
-
-APU
-- Spero per il tuo bene che tu stia facendo le pagine dei giochi e che tu ti sia solo dimenticato di sincronizzare GitHub...
-- Prepara gli schemi ad oggetti e relazionale, sulla base delle query che michele ha caricato nella cartella condivisa su dropbox, poi appena aggiorna le query li sistemi, ma intanto prepara la base.
 
 JOHN
 - Gestione carrello e checkout.

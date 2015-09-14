@@ -18,7 +18,6 @@ else {
     ('$email', '$telefono', '$nome', '$cognome', '$indirizzo', '$cap', '$citta', '$provincia')
       WHERE login = '$username'";
     $result = pg_query($dbconn,$query) or die('Query fallita: ' . pg_last_error()); // Risultati $query
-    $row_count= pg_num_rows($result);
     echo '<script language=javascript>document.location.href="../myaccount.php?mes=1"</script>';
 
 }

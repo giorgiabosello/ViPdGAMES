@@ -1,19 +1,12 @@
 <?php
 session_start();
-$codice='2001' ; //PER MICHELE: Inserisci qui il codice tra virgolette del gioco che dev 'essere identico al record nel DB
+if(isset($_GET['cod']))
+    $codice = $_GET['cod'];
+else
+    $codice = 1;
 require_once("../config/config.db.php"); //importo il file con connessione
 $query = $db->query("SELECT * FROM videogiochi WHERE codice = '$codice'"); //Query per dati del gioco
 $line = $query->fetch(PDO::FETCH_ASSOC);
-if(isset($_POST["qt"])){
-    if($_POST["qt"] > $line[quantita]){
-        $color = red;
-        $string = "Spiacente, la quantità massima ordinabile è: $line[quantita]";
-    }
-    else{
-        $color = green;
-        $string = "Aggiunti $line[quantita] prodotti al carrello!";
-    }
-}
 ?>
 
     <html lang="it">
@@ -199,9 +192,6 @@ if(isset($_POST["qt"])){
 
                                     </span>
                                     <?php
-                                    if(isset($_POST["qt"])){
-                                        echo "<p style='color: $color'>$string</p>";
-                                    }
                                     ?>
                                     <p><b>Disponibilità: </b>
                                         <?php echo "$line[quantita]"?>

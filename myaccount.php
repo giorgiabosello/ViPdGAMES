@@ -198,6 +198,7 @@ else{
                                 <p><a class="btn btn-default" href="myaccount_modify.php" role="button">Modifica informazioni</a>
                                 </p>
                                 <?php if($_GET['msg'] == 1) echo "<p style='color: green'> Dati modificati con successo!</p>" ?>
+                                <?php if($_GET['msg'] == 2) echo "<p style='color: red'> Spiacente non sei un admin!</p>" ?>
 
                             </div>
 

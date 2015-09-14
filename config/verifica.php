@@ -12,8 +12,10 @@ else $trovato = 1; //utente trovato
 if($trovato === 1) {
     $_SESSION["auth"] = 1;
     $_SESSION["id"] = $username;
-    if($line['amministratore'] == TRUE)
+    if($line['amministratore'] == 'true')
         $_SESSION['admin'] = 1;
+    else
+        $_SESSION['admin'] = 0;
     /*Redirect alla pagina MyAccount*/
     echo '<script language=javascript>document.location.href="../myaccount.php"</script>';
 }
