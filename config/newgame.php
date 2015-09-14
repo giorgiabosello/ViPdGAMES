@@ -8,13 +8,13 @@ if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
 if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1){
     echo '<script language=javascript>document.location.href="myaccount.php?msg=2"</script>';
 }
-$categoria = pg_escape_string($dbconn, $_POST['categoria']);
-$console = pg_escape_string($dbconn, $_POST['console']);
-$descr = pg_escape_string($dbconn, $_POST['descr']);
-$sviluppatore = pg_escape_string($dbconn, $_POST['sviluppatore']);
-$path = pg_escape_string($dbconn, $_POST['path']);
-$prezzo = (float)pg_escape_string($dbconn, $_POST['prezzo']);
-$qt = (int)pg_escape_string($dbconn, $_POST['qt']);
+$categoria = trim(pg_escape_string($dbconn, $_POST['categoria']));
+$console = trim(pg_escape_string($dbconn, $_POST['console']));
+$descr = trim(pg_escape_string($dbconn, $_POST['descr']));
+$sviluppatore = trim(pg_escape_string($dbconn, $_POST['sviluppatore']));
+$path = trim(pg_escape_string($dbconn, $_POST['path']));
+$prezzo = (float)trim(pg_escape_string($dbconn, $_POST['prezzo']));
+$qt = (int)trim(pg_escape_string($dbconn, $_POST['qt']));
 try{
     $db->query("INSERT INTO videogiochi (titolo, console, descrizione, categoria, sviluppatore, prezzo, quantita, path)
       VALUES ('$titolo', '$console', '$descr', '$categoria', '$sviluppatore', '$prezzo', '$qt', '$path')");

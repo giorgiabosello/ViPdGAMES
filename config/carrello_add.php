@@ -4,19 +4,12 @@ require_once("config.db.php"); //importo il file con connessione
 if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
     echo '<script language=javascript>document.location.href="../login.php?err=2"</script>';
 }
-<<<<<<< HEAD
 $qt = (int)pg_escape_string($dbconn, $_POST['qt']); //quantità presa da POST
 print_r($qt);
 $codice = (int)pg_escape_string($dbconn, $_POST['cod']); //codice preso da POST
 print_r($codice);
 $username = pg_escape_string($dbconn, $_SESSION['id']); //username preso da SESSION
 print_r($username);
-=======
-
-$qt = (int)pg_escape_string($dbconn, $_POST['qt']); //quantità presa da POST
-$codice = (int)pg_escape_string($dbconn, $_POST['cod']); //codice preso da POST
-$username = pg_escape_string($dbconn, $_SESSION['id']); //username preso da SESSION
->>>>>>> 23a48a7ad4b5c395f1fe23d75019526e17590b36
 $today = date("m/d/Y"); //data odierna in stringa per ordine
 $query_dispo = "SELECT videogiochi.quantita FROM videogiochi WHERE codice = '$codice'"; //calcolo disponibilità residua
 $dispo = $query_dispo->fetch(PDO::FETCH_ASSOC); //calcolo disponibilità residua

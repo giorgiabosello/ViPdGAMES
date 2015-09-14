@@ -5,15 +5,15 @@ if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
     echo '<script language=javascript>document.location.href="login.php?err=2"</script>';
 }
 else {
-    $username = pg_escape_string($dbconn, $_SESSION['id']);
-    $email = pg_escape_string($dbconn, $_POST["email"]);
-    $telefono = pg_escape_string($dbconn, $_POST["telefono"]);
-    $nome = pg_escape_string($dbconn, $_POST["nome"]);
-    $cognome = pg_escape_string($dbconn, $_POST["cognome"]);
-    $indirizzo = pg_escape_string($dbconn, $_POST["indirizzo"]);
-    $cap = pg_escape_string($dbconn, $_POST["cap"]);
-    $citta = pg_escape_string($dbconn, $_POST["citta"]);
-    $provincia = pg_escape_string($dbconn, $_POST["provincia"]);
+    $username = trim(pg_escape_string($dbconn, $_SESSION['id']));
+    $email = trim(pg_escape_string($dbconn, $_POST["email"]));
+    $telefono = trim(pg_escape_string($dbconn, $_POST["telefono"]));
+    $nome = trim(pg_escape_string($dbconn, $_POST["nome"]));
+    $cognome = trim(pg_escape_string($dbconn, $_POST["cognome"]));
+    $indirizzo = trim(pg_escape_string($dbconn, $_POST["indirizzo"]));
+    $cap = trim(pg_escape_string($dbconn, $_POST["cap"]));
+    $citta = trim(pg_escape_string($dbconn, $_POST["citta"]));
+    $provincia = trim(pg_escape_string($dbconn, $_POST["provincia"]));
     $query = "UPDATE utenti SET (email, telefono, nome, cognome, indirizzo, cap, citta, provincia) =
     ('$email', '$telefono', '$nome', '$cognome', '$indirizzo', '$cap', '$citta', '$provincia')
       WHERE login = '$username'";

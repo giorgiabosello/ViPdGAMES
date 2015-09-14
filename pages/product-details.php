@@ -1,13 +1,9 @@
 <?php
 session_start();
-<<<<<<< HEAD
 if(isset($_GET['cod']))
     $codice = $_GET['cod'];
 else
     $codice = 1;
-=======
-$codice='10' ; //PER MICHELE: Inserisci qui il codice tra virgolette del gioco che dev 'essere identico al record nel DB
->>>>>>> 23a48a7ad4b5c395f1fe23d75019526e17590b36
 require_once("../config/config.db.php"); //importo il file con connessione
 $query = $db->query("SELECT * FROM videogiochi WHERE codice = '$codice'"); //Query per dati del gioco
 $line = $query->fetch(PDO::FETCH_ASSOC);
@@ -177,7 +173,7 @@ $line = $query->fetch(PDO::FETCH_ASSOC);
                             </div>
                             <div class="col-sm-7">
                                 <div class="product-information">
-                                    <form method="post" action="../config/carrello_add.php">
+                                    <form method="post">
                                     <!--/product-information-->
                                     <img src="../images/product-details/new.jpg" class="newarrival" alt="" />
                                     <h2><?php echo "$line[titolo]"?></h2>
@@ -196,10 +192,6 @@ $line = $query->fetch(PDO::FETCH_ASSOC);
 
                                     </span>
                                     <?php
-<<<<<<< HEAD
-=======
-                                    //per conferma aggiunta al carrello
->>>>>>> 23a48a7ad4b5c395f1fe23d75019526e17590b36
                                     ?>
                                     <p><b>Disponibilità: </b>
                                         <?php echo "$line[quantita]"?>

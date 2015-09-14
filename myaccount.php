@@ -64,7 +64,7 @@ else{
             <div class="row">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h2 class="title text-center">ACCOUNT</h2>
+                        <h2 class="title text-center"><?php echo "Benvenuto, $_SESSION[id]";?></h2>
                         <br>
                     </div>
                 </div>
@@ -198,12 +198,9 @@ else{
                                 <p><a class="btn btn-default" href="myaccount_modify.php" role="button">Modifica informazioni</a>
                                 </p>
                                 <?php if($_GET['msg'] == 1) echo "<p style='color: green'> Dati modificati con successo!</p>" ?>
-<<<<<<< HEAD
                                 <?php if($_GET['msg'] == 2) echo "<p style='color: red'> Spiacente non sei un admin!</p>" ?>
-=======
-                                <?php if($_GET['msg'] == 2) echo "<p style='color: red'> Solo gli admin possono inserire nuovi giochi!</p>" ?>
->>>>>>> 23a48a7ad4b5c395f1fe23d75019526e17590b36
-
+                                <?php if($_GET['msg'] == 3) echo "<p style='color: red'> Sei già registrato!</p>" ?>
+                                <?php if($_GET['msg'] == 4) echo "<p style='color: red'> Registrazione riuscita!!</p>" ?>
                             </div>
 
                         </div>

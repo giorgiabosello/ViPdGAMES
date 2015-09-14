@@ -59,7 +59,7 @@ if (isset($_SESSION["auth"]) || $_SESSION["auth"] == 1){
         </div>
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2">
-                <form novalidate="novalidate" action="/config/newuser.php" method="post">
+                <form novalidate="novalidate" action="config/newuser.php" method="post">
                     <input name="__RequestVerificationToken" value="lPfe7IL4E9KcTgH-u3gUFG1qELDzpcfbGJWNMn9HyGbocrog_NTTh1oTmNCbbYvrKGp-yrui8gCOgtTgukquC-NUkbWVZyqP4owj5SZem7o1" type="hidden">
                     <div class="features_items my-account-page">
                         <!--features_items-->
@@ -75,11 +75,10 @@ if (isset($_SESSION["auth"]) || $_SESSION["auth"] == 1){
                                 
                                 <div class="form-group row ">
                                     <div class="col-md-2">
-
-                                        <label class="" for="Nome">Nome:</label>
+                                        <label <?php if(isset($_GET['err']) && $_GET['err'] == 'nome') echo "style='color: red'"; ?> class="" for="Nome">Nome(min 1, max 10 caratteri):</label>
                                     </div>
                                     <div class="col-md-6 ">
-                                        <input class="gray-input" data-val="true" data-val-required="Inserire il proprio nome." data-val-length-max="10" name="nome" value="" type="text">
+                                        <input class="gray-input" data-val="true" data-val-required="Inserire il proprio nome." name="nome" value="<?php echo "$_GET[nome]";?>" type="text">
                                     </div>
                                     <div class="col-md-4">
                                         <span class="required">*</span>
@@ -92,10 +91,10 @@ if (isset($_SESSION["auth"]) || $_SESSION["auth"] == 1){
                                 
                                 <div class="form-group row">
                                     <div class="col-md-2 ">
-                                        <label class="" for="LastName">Cognome:</label>
+                                        <label <?php if(isset($_GET['err']) && $_GET['err'] == 'cognome') echo "style='color: red'"; ?> class="" for="LastName">Cognome(min 1, max 20 caratteri):</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="gray-input" data-val="true" data-val-required="Inserire il proprio cognome." data-val-length-max="20" name="Cognome" value="" type="text">
+                                        <input class="gray-input" data-val="true" data-val-required="Inserire il proprio cognome." name="cognome" value="<?php echo "$_GET[cognome]";?>" type="text">
                                     </div>
                                     <div class="col-md-4">
                                         <span class="required">*</span>
@@ -108,10 +107,10 @@ if (isset($_SESSION["auth"]) || $_SESSION["auth"] == 1){
                                 
                                 <div class="form-group row">
                                     <div class="col-md-2 ">
-                                        <label class="" for="Telefono">Telefono:</label>
+                                        <label <?php if(isset($_GET['err']) && $_GET['err'] == 'telefono') echo "style='color: red'"; ?> class="" for="Telefono">Telefono(min 1, max 15 caratteri):</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="gray-input" data-val="true" data-val-required="Telefono necessario." data-val-length-max="15" name="Telefono" value="" type="text">
+                                        <input class="gray-input" data-val="true" data-val-required="Telefono necessario."  name="telefono" value="<?php echo "$_GET[telefono]";?>" type="text">
                                     </div>
                                     <div class="col-md-4">
                                         <span class="required">*</span>
@@ -124,10 +123,10 @@ if (isset($_SESSION["auth"]) || $_SESSION["auth"] == 1){
                                 
                                 <div class="form-group row">
                                     <div class="col-md-2 ">
-                                        <label class="" for="Indirizzo">Indirizzo:</label>
+                                        <label <?php if(isset($_GET['err']) && $_GET['err'] == 'indirizzo') echo "style='color: red'"; ?> class="" for="Indirizzo">Indirizzo(min 1, max 20 caratteri):</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="gray-input" data-val="true" data-val-required="Inserire il proprio indirizzo" data-val-length-max="20" name="Indirizzo" value="" type="text">
+                                        <input class="gray-input" data-val="true" data-val-required="Inserire il proprio indirizzo"  name="indirizzo" value="<?php echo "$_GET[indirizzo]";?>" type="text">
                                     </div>
                                     <div class="col-md-4">
                                         <span class="required">*</span>
@@ -140,10 +139,10 @@ if (isset($_SESSION["auth"]) || $_SESSION["auth"] == 1){
                                 
                                 <div class="form-group row">
                                     <div class="col-md-2 ">
-                                        <label class="" for="CAP">CAP:</label>
+                                        <label <?php if(isset($_GET['cap']) && $_GET['err'] == 'nome') echo "style='color: red'"; ?> class="" for="CAP">CAP(6 caratteri):</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="gray-input" data-val="true" data-val-required="Inserire il CAP." data-val-length-max="6" name="CAP" value="" type="text">
+                                        <input class="gray-input" data-val="true" data-val-required="Inserire il CAP."  name="cap" value="<?php echo "$_GET[cap]";?>" type="text">
                                     </div>
                                     <div class="col-md-4">
                                         <span class="required">*</span>
@@ -156,10 +155,10 @@ if (isset($_SESSION["auth"]) || $_SESSION["auth"] == 1){
                                 
                                 <div class="form-group row">
                                     <div class="col-md-2 ">
-                                        <label class="" for="Città">Città:</label>
+                                        <label <?php if(isset($_GET['err']) && $_GET['err'] == 'citta') echo "style='color: red'"; ?> class="" for="Città">Città(min 1, max 25 caratteri):</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="gray-input" data-val="true" data-val-required="Città necessaria." data-val-length-max="25" name="Città" value="" type="text">
+                                        <input class="gray-input" data-val="true" data-val-required="Città necessaria."  name="citta" value="<?php echo "$_GET[citta]";?>" type="text">
                                     </div>
                                     <div class="col-md-4">
                                         <span class="required">*</span>
@@ -172,10 +171,10 @@ if (isset($_SESSION["auth"]) || $_SESSION["auth"] == 1){
                                 
                                 <div class="form-group row">
                                     <div class="col-md-2 ">
-                                        <label class="" for="Prov">Provincia:</label>
+                                        <label <?php if(isset($_GET['err']) && $_GET['err'] == 'prov') echo "style='color: red'"; ?> class="" for="Prov">Provincia(min 1, max 25 caratteri):</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="gray-input" data-val="true" data-val-required="Provincia necessaria." data-val-length-max="25" name="Prov" value="" type="text">
+                                        <input class="gray-input" data-val="true" data-val-required="Provincia necessaria."  name="prov" value="<?php echo "$_GET[prov]";?>" type="text">
                                     </div>
                                     <div class="col-md-4">
                                         <span class="required">*</span>
@@ -190,10 +189,10 @@ if (isset($_SESSION["auth"]) || $_SESSION["auth"] == 1){
                                 
                                 <div class="form-group row">
                                     <div class="col-md-2">
-                                        <label class="" for="Email">Email:</label>
+                                        <label <?php if(isset($_GET['err']) && $_GET['err'] == 'email') echo "style='color: red'"; ?> class="" for="Email">Email(min 1, max 80 caratteri):</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="gray-input" data-val="true" data-val-email="Email sbagliata." data-val-required="Email necessaria." data-val-length-max="80" name="Email" value="" type="text">
+                                        <input class="gray-input" data-val="true" data-val-email="Email sbagliata." data-val-required="Email necessaria."  name="email" value="<?php echo "$_GET[email]";?>" type="text">
                                     </div>
                                     <div class="col-md-4">
                                         <span class="required">*</span>
@@ -209,13 +208,14 @@ if (isset($_SESSION["auth"]) || $_SESSION["auth"] == 1){
                                     <legend class="">Username e Password</legend>
                                 </div>
                                 <!-- LOGIN -->
-                                
+                                <?php if(isset($_GET['err']) && $_GET['err'] == 1) echo "<p style='color: red'>Le 2 password non sono identiche, riprova!</p>"; ?>
+                                <?php if(isset($_GET['err']) && $_GET['err'] == 2) echo "<p style='color: red'>Username già preso, provane uno nuovo!</p>"; ?>
                                 <div class="form-group row">
                                     <div class="col-md-2 ">
-                                        <label class="" for="Login">Login:</label>
+                                        <label <?php if(isset($_GET['err']) && $_GET['err'] == 'login') echo "style='color: red'"; ?> class="" for="Login">Login:</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="gray-input" data-val="true" data-val-required="Last name is required." data-val-length-max="15" name="Login" value="" type="text">
+                                        <input class="gray-input" data-val="true" data-val-required="Last name is required." name="login" value="" type="text">
                                     </div>
                                     <div class="col-md-4">
                                         <span class="required">*</span>
@@ -229,10 +229,10 @@ if (isset($_SESSION["auth"]) || $_SESSION["auth"] == 1){
                                 <div class="form-fields">
                                     <div class="form-group row">
                                         <div class="col-md-2">
-                                            <label class="" for="psw">Password:</label>
+                                            <label <?php if(isset($_GET['err']) && $_GET['err'] == 'psw') echo "style='color: red'"; ?> class="" for="psw">Password:</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <input class="gray-input" data-val="true" data-val-length="La password deve avere almeno 6 caratteri e massimo 15." data-val-length-max="15" data-val-length-min="6" data-val-required="Password necessaria." name="psw" value="" type="password">
+                                            <input class="gray-input" data-val="true" data-val-required="Password necessaria." name="psw" value="" type="password">
                                         </div>
                                         <div class="col-md-4">
                                             <span class="required">*</span>
@@ -244,7 +244,7 @@ if (isset($_SESSION["auth"]) || $_SESSION["auth"] == 1){
                                             <label class="" for="ConfirmPassword">Conferma password:</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <input class="gray-input" data-val="true" data-val-equalto="Le password non corrispondono. Controlla." data-val-equalto-other="*.Password" data-val-required="Password necessaria." id="ConfirmPassword" name="ConfirmPassword" value="" type="password">
+                                            <input class="gray-input" data-val="true" data-val-equalto="Le password non corrispondono. Controlla." data-val-equalto-other="*.Password" data-val-required="Password necessaria." id="ConfirmPassword" name="psw2" value="" type="password">
                                         </div>
                                         <div class="col-md-4">
                                             <span class="required">*</span>
