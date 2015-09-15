@@ -129,15 +129,7 @@ session_start();
                         <ul class="nav navbar-nav collapse navbar-collapse">
                             <li><a href="index.php" class="active">Home</a>
                             </li>
-                            <li class="dropdown"><a href="#">Negozio<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="shop.php">Prodotti</a>
-                                    </li>
-                                    <li><a href="checkout.php">Checkout</a>
-                                    </li>
-                                    <li><a href="cart.php">Carrello</a>
-                                    </li>
-                                </ul>
+                            <li class="dropdown"><a href="../shop.php">Negozio</a>
                             </li>
                             <li><a href="contact-us.php">Contatti</a>
                             </li>
