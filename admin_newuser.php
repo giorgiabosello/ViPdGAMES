@@ -208,7 +208,7 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1){
                                 <legend class="">Username e Password</legend>
                             </div>
                             <!-- LOGIN -->
-                            <?php if(isset($_GET['err']) && $_GET['err'] == 1) echo "<p style='color: red'>Le 2 password non sono identiche, riprova!</p>"; ?>
+                            <?php if(isset($_GET['err']) && $_GET['err'] == 'psw2') echo "<p style='color: red'>Le 2 password non sono identiche, riprova!</p>"; ?>
                             <?php if(isset($_GET['err']) && $_GET['err'] == 2) echo "<p style='color: red'>Username già preso, provane uno nuovo!</p>"; ?>
                             <div class="form-group row">
                                 <div class="col-md-2 ">
