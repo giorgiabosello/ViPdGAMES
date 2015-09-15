@@ -152,19 +152,20 @@ require_once("config/config.db.php");
                     <div class="features_items">
                         <!--features_items-->
                         <h2 class="title text-center">I nostri giochi</h2>
-                        <?php foreach($db->query("SELECT * FROM videogiochi") as $record) {?>
+                        <?php foreach($db->query("SELECT * FROM videogiochi LIMIT 6") as $record) {?>
                             <div class="col-sm-4">
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
                                             <img src = "pages/<?php echo "$record[path]"?>" class="games img-responsive" alt = "" />
-                                            <h2 ><?php echo "$record[prezzo]"?> </h2 >
+                                            <h2 ><?php echo "€ $record[prezzo]"?> </h2 >
                                             <p > <?php echo "$record[titolo]"?> </p >
                                             <a href = "pages/product-details.php?cod=<?php echo "$record[codice]"?>" class="btn btn-default add-to-cart" ><i class="fa fa-shopping-cart" ></i > Maggiori Dettagli </a >
                                         </div>
                                         <div class="product-overlay">
                                             <div class="overlay-content">
-                                                <h2 ><?php echo "$record[prezzo]"?> </h2 >
+                                                <p > <?php echo "$record[categoria]"?> </p >
+                                                <h2 ><?php echo "€ $record[prezzo]"?> </h2 >
                                                 <p > <?php echo "$record[titolo]"?> </p >
                                                 <a href = "pages/product-details.php?cod=<?php echo "$record[codice]"?>" class="btn btn-default add-to-cart" ><i class="fa fa-shopping-cart" ></i > Maggiori Dettagli </a >
                                             </div>
