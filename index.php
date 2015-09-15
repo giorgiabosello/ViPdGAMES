@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once("config/config.db.php");
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 
@@ -113,27 +118,25 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-										<a href="shop_pc.php">PC</a>
-									</h4>
+                                        <a href="shop_pc.php">PC</a>
+                                    </h4>
                                 </div>
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-										<a href="shop_ps3.php">PS3</a>
-									</h4>
+                                        <a href="shop_ps3.php">PS3</a>
+                                    </h4>
                                 </div>
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-										<a href="shop_xbox.php">XBOX</a>
-									</h4>
+                                        <a href="shop_xbox.php">XBOX</a>
+                                    </h4>
                                 </div>
                             </div>
                         </div>
-                        <!--/category-products-->
-
 
 
                         <div class="shipping text-center">
@@ -149,122 +152,27 @@
                     <div class="features_items">
                         <!--features_items-->
                         <h2 class="title text-center">I nostri giochi</h2>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="images/games/assassinscreed2.jpg" class="games img-responsive" alt="" />
-                                        <h2>€50</h2>
-                                        <p>Assassin's Creed II</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
-                                    </div>
-                                    <div class="product-overlay">
-                                        <div class="overlay-content">
-                                            <h2>€50</h2>
-                                            <p>Assassin's Creed II</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
+                        <?php foreach($db->query("SELECT * FROM videogiochi") as $record) {?>
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src = "pages/<?php echo "$record[path]"?>" class="games img-responsive" alt = "" />
+                                            <h2 ><?php echo "$record[prezzo]"?> </h2 >
+                                            <p > <?php echo "$record[titolo]"?> </p >
+                                            <a href = "pages/product-details.php?cod=<?php echo "$record[codice]"?>" class="btn btn-default add-to-cart" ><i class="fa fa-shopping-cart" ></i > Maggiori Dettagli </a >
+                                        </div>
+                                        <div class="product-overlay">
+                                            <div class="overlay-content">
+                                                <h2 ><?php echo "$record[prezzo]"?> </h2 >
+                                                <p > <?php echo "$record[titolo]"?> </p >
+                                                <a href = "pages/product-details.php?cod=<?php echo "$record[codice]"?>" class="btn btn-default add-to-cart" ><i class="fa fa-shopping-cart" ></i > Maggiori Dettagli </a >
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="images/games/batmanarkhamcity.jpg" class="games img-responsive" alt="" />
-                                        <h2>€49</h2>
-                                        <p>Batman - Arkham City</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
-                                    </div>
-                                    <div class="product-overlay">
-                                        <div class="overlay-content">
-                                            <h2>€49</h2>
-                                            <p>Batman - Arkham City</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="images/games/gta5.jpg" class="games img-responsive" alt="" />
-                                        <h2>€70</h2>
-                                        <p>GTA V</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
-                                    </div>
-                                    <div class="product-overlay">
-                                        <div class="overlay-content">
-                                            <h2>€70</h2>
-                                            <p>GTA V</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="images/games/fifa16.jpg" class="games img-responsive" alt="" />
-                                        <h2>€75</h2>
-                                        <p>FIFA 16</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
-                                    </div>
-                                    <div class="product-overlay">
-                                        <div class="overlay-content">
-                                            <h2>€75</h2>
-                                            <p>FIFA 16</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
-                                        </div>
-                                    </div>
-                                    <img src="images/home/new.png" class="new" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="images/games/fifa15.jpg" class="games img-responsive" alt="" />
-                                        <h2>€35</h2>
-                                        <p>FIFA15</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
-                                    </div>
-                                    <div class="product-overlay">
-                                        <div class="overlay-content">
-                                            <h2>€35</h2>
-                                            <p>FIFA15</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
-                                        </div>
-                                    </div>
-                                    <img src="images/home/sale.png" class="new" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="http://placehold.it/268x249" class="games img-responsive" alt="" />
-                                        <h2>€56</h2>
-                                        <p>Call Of Duty</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
-                                    </div>
-                                    <div class="product-overlay">
-                                        <div class="overlay-content">
-                                            <h2>€56</h2>
-                                            <p>Call Of Duty</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Maggiori Dettagli</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php }?>
                     </div>
                 </div>
             </div>
