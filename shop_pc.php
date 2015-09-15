@@ -1,4 +1,16 @@
-<?php session_start(); require_once( "config/config.db.php"); ?>
+<?php
+session_start();
+require_once("config/config.db.php");
+if ($_GET['ord'] == '1') {
+    $query=("SELECT * FROM videogiochi WHERE console = 'PC' ORDER BY titolo ASC");
+}
+else if ($_GET['ord'] == '2') {
+    $query = ("SELECT * FROM videogiochi WHERE console = 'PC' ORDER BY prezzo ASC");
+}
+else{
+    $query = ("SELECT * FROM videogiochi");
+}
+?>
 
 <!DOCTYPE html>
 <html lang="it">
@@ -83,28 +95,24 @@
                 </div>
 
                 <!-- Filtro -->
-
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="selectbasic">Ordina per :</label>
                     <div class="col-sm-2">
                         <select id="filter" name="selectbasic" class="form-control">
-                            <option value="0">Nessuno</option>
-                            <option value="1">Titolo</option>
-                            <!-- al posto di 1, metti il link (tra virgolette) -->
-                            <option value="2">Prezzo</option>
-                            <option value="3">Codice</option>
+                            <option value="shop.php?ord=0">Nessuno</option>
+                            <option value="shop.php?ord=1">Titolo</option> <!-- al posto di 1, metti il link (tra virgolette) -->
+                            <option value="shop.php?ord=2">Prezzo</option>
                         </select>
                         <br>
                     </div>
                 </div>
-
                 <!-- Fine filtro -->
 
                 <div class="col-sm-9 padding-right">
                     <div class="features_items">
                         <!--features_items-->
                         <h2 class="title text-center">Negozio</h2>
-                        <?php foreach($db->query("SELECT * FROM videogiochi WHERE console = 'PC'") as $record) {?>
+                        <?php foreach($db->query($query) as $record) {?>
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
