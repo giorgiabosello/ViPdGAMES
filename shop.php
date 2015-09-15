@@ -85,6 +85,23 @@ require_once("config/config.db.php");
                     </div>
                 </div>
 
+                <!-- Filtro -->
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="selectbasic">Ordina per :</label>
+                    <div class="col-sm-2">
+                        <select id="filter" name="selectbasic" class="form-control">
+                            <option value="0">Nessuno</option>
+                            <option value="1">Titolo</option> <!-- al posto di 1, metti il link (tra virgolette) -->
+                            <option value="2">Prezzo</option>
+                            <option value="3">Codice</option>
+                        </select>
+                        <br>
+                    </div>
+                </div>
+
+                <!-- Fine filtro -->
+
                 <div class="col-sm-9 padding-right">
                     <div class="features_items">
                         <!--features_items-->
@@ -127,6 +144,13 @@ require_once("config/config.db.php");
     </script>
     <script>
         $("#navbar").load("navbar.php");
+    </script>
+    <script>
+        document.getElementById("filter").onchange = function () {
+            if (this.selectedIndex !== 0) {
+                window.location.href = this.value;
+            }
+        };
     </script>
     <script src="js/jquery.js"></script>
     <script src="js/jquery.scrollUp.min.js"></script>
