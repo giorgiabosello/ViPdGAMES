@@ -2,7 +2,7 @@
 session_start();
 require_once("config/config.db.php"); //importo il file con connessione
 if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
-    echo '<script language=javascript>document.location.href="login.php?err=2"</script>';
+    echo '<script language=javascript>document.location.href="../login.php?err=2"</script>';
 }
 if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1){
     echo '<script language=javascript>document.location.href="myaccount.php?msg=2"</script>';
