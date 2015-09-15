@@ -1,3 +1,16 @@
+<?php
+session_start();
+require_once("config/config.db.php");
+//se non c'è la sessione registrata
+if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
+    echo '<script language=javascript>document.location.href="login.php?err=2"</script>';
+}
+else{
+    $idordine = $_SESSION['idordine'];
+}
+$grantotale = 0;
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 
@@ -47,115 +60,38 @@
             <div class="table-responsive cart_info">
                 <table class="table table-condensed">
                     <thead>
-                        <tr class="cart_menu">
-                            <td class="image">Item</td>
-                            <td class="description"></td>
-                            <td class="price">Prezzo</td>
-                            <td class="quantity">Quantità</td>
-                            <td class="total">Totale</td>
-                            <td></td>
-                        </tr>
+                    <tr class="cart_menu">
+                        <td>Titolo</td>
+                        <td>Codice Gioco</td>
+                        <td>Prezzo</td>
+                        <td>Quantita`</td>
+                        <td>Prezzo Totale</td>
+                        <td>Delete</td>
+                    </tr>
                     </thead>
                     <tbody>
+                    <?php foreach($db->query("SELECT * FROM carrelli WHERE idordine = '$idordine'") as $record) {
+                        $codice = $record['codice'];
+                        $qt = $record['quantita'];
+                        try{
+                            $query_gioco = $db->query("SELECT * FROM videogiochi WHERE codice = '$codice'");
+                            $line_gioco = $query_gioco->fetch(PDO::FETCH_ASSOC);
+                            $tot = $line_gioco['prezzo'] * $qt;
+                            $grantotale += $tot;
+                        }catch(PDOException $e){
+                            die($e->getMessage());
+                        }
+                        ?>
                         <tr>
-                            <td class="cart_product">
-                                <img src="http://placehold.it/110x110" class="cart img-responsive" alt="" />
-                                </a>
-                            </td>
-                            <td class="cart_description">
-                                <h4><a href="">The Witcher III</a></h4>
-                                <p>Web ID: 1089772</p>
-                            </td>
-                            <td class="cart_price">
-                                <p>€69,99</p>
-                            </td>
-                            <td class="cart_quantity">
-                                <div class="cart_quantity_button">
-                                    <a class="cart_quantity_up" href=""> + </a>
-                                    <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                    <a class="cart_quantity_down" href=""> - </a>
-                                </div>
-                            </td>
-                            <td class="cart_total">
-                                <p class="cart_total_price">€69,99</p>
-                            </td>
-                            <td class="cart_delete">
-                                <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-                            </td>
+                            <td> <?php echo "$line_gioco[titolo]"?></td>
+                            <td> <?php echo "$line_gioco[codice]"?></td>
+                            <td> <?php echo "€$line_gioco[prezzo]"?></td>
+                            <td> <?php echo "$qt"?></td>
+                            <td> <?php echo "$tot"?></td>
+                            <td> Delete</td>
                         </tr>
-
-                        <tr>
-                            <td class="cart_product">
-                                <img src="http://placehold.it/110x110" class="cart img-responsive" alt="" />
-                                </a>
-                            </td>
-                            <td class="cart_description">
-                                <h4><a href="">Watch Dogs</a></h4>
-                                <p>Web ID: 1089772</p>
-                            </td>
-                            <td class="cart_price">
-                                <p>€25</p>
-                            </td>
-                            <td class="cart_quantity">
-                                <div class="cart_quantity_button">
-                                    <a class="cart_quantity_up" href=""> + </a>
-                                    <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                    <a class="cart_quantity_down" href=""> - </a>
-                                </div>
-                            </td>
-                            <td class="cart_total">
-                                <p class="cart_total_price">€25</p>
-                            </td>
-                            <td class="cart_delete">
-                                <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="cart_product">
-                                <img src="http://placehold.it/110x110" class="cart img-responsive" alt="" />
-                                </a>
-                            </td>
-                            <td class="cart_description">
-                                <h4><a href="">The Last Of Us</a></h4>
-                                <p>Web ID: 1089772</p>
-                            </td>
-                            <td class="cart_price">
-                                <p>€25</p>
-                            </td>
-                            <td class="cart_quantity">
-                                <div class="cart_quantity_button">
-                                    <a class="cart_quantity_up" href=""> + </a>
-                                    <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                    <a class="cart_quantity_down" href=""> - </a>
-                                </div>
-                            </td>
-                            <td class="cart_total">
-                                <p class="cart_total_price">€25</p>
-                            </td>
-                            <td class="cart_delete">
-                                <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="4">&nbsp;</td>
-                            <td colspan="2">
-                                <table class="table table-condensed total-result">
-                                    <tr>
-                                        <td>Totale carrello</td>
-                                        <td>€119,99</td>
-                                    </tr>
-                                    <tr class="shipping-cost">
-                                        <td>Costi di trasporto</td>
-                                        <td>€0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Totale</td>
-                                        <td><span>€119,99</span>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
+                    <?php } ?>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -165,63 +101,13 @@
 
     <section id="do_action">
         <div class="container">
-            <div class="heading">
-                <h3>Che cosa vuoi fare ora?</h3>
-                <p>Scegli se hai un codice sconto da usare.</p>
-            </div>
             <div class="row">
-                <div class="col-sm-6">
-                    <div class="chose_area">
-                        <ul class="user_option">
-                            <li>
-                                <input type="checkbox">
-                                <label>CODICE SCONTO</label>
-                                <li class="single_field zip-field">
-                                    <label>Codice:</label>
-                                    <input type="text">
-                                </li>
-                            </li>
-                            <li>
-                                <input type="checkbox">
-                                <label>VOUCHER REGALO</label>
-                                <li class="single_field zip-field">
-                                    <label>Codice:</label>
-                                    <input type="text">
-                                </li>
-                            </li>
-                        </ul>
-                        <ul class="user_info">
-                            <li class="single_field">
-                                <label>Stato:</label>
-                                <select>
-                                    <option>-- Stato --</option>
-                                    <option>Italia</option>
-                                    <option>Stati Uniti</option>
-                                    <option>UK</option>
-                                    <option>India</option>
-                                    <option>Pakistan</option>
-                                    <option>Ucraina</option>
-                                    <option>Canada</option>
-                                    <option>Emirati Arabi</option>
-                                </select>
-
-                            </li>
-                            <li class="single_field zip-field">
-                                <label>Codice postale:</label>
-                                <input type="text">
-                            </li>
-                        </ul>
-                        <a class="btn btn-default check_out" href="">Continua</a>
-                    </div>
-                </div>
                 <div class="col-sm-6">
                     <div class="total_area">
                         <ul>
-                            <li>Totale carrello <span>€ 119,99</span>
+                            <li>Totale carrello <span>€ <?php echo "$grantotale"?></span>
                             </li>
                             <li>Costi di spedizione <span>€ 0</span>
-                            </li>
-                            <li>Totale <span>€ 119,99</span>
                             </li>
                         </ul>
                         <a class="btn btn-default update" href="">Aggiorna</a>

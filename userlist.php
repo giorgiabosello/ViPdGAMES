@@ -66,112 +66,32 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1){
                             <td>CAP</td>
                             <td>Città</td>
                             <td>Provincia</td>
+                            <td>Amministratore</td>
                             <td>Email</td>
                             <td>Username</td>
-                            <td>Frase celebre</td>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <p>John</p> <!-- Se ci metti il link al videogioco, scrivi dentro href, sennò toglilo e scrivi solo al posto di ID Ordine -->
-                            </td>
-                            <td>
-                                <p>Mink</p>
-                            </td>
-                            <td>
-                                <p>3459068432</p>
-                            </td>
-                            <td>
-                                <p>Via Santanna</p>
-                            </td>
-                            <td>
-                                <p>35098</p>
-                            </td>
-                            <td>
-                                <p>Dueville</p>
-                            </td>
-                            <td>
-                                <p>Vicenza</p>
-                            </td>
-                            <td>
-                                <p>minkjohn@live.it</p>
-                            </td>
-                            <td>
-                                <p>johnwayne</p>
-                            </td>
-                            <td>
-                                <p>murica</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>John</p> <!-- Se ci metti il link al videogioco, scrivi dentro href, sennò toglilo e scrivi solo al posto di ID Ordine -->
-                            </td>
-                            <td>
-                                <p>Mink</p>
-                            </td>
-                            <td>
-                                <p>3459068432</p>
-                            </td>
-                            <td>
-                                <p>Via Santanna</p>
-                            </td>
-                            <td>
-                                <p>35098</p>
-                            </td>
-                            <td>
-                                <p>Dueville</p>
-                            </td>
-                            <td>
-                                <p>Vicenza</p>
-                            </td>
-                            <td>
-                                <p>minkjohn@live.it</p>
-                            </td>
-                            <td>
-                                <p>johnwayne</p>
-                            </td>
-                            <td>
-                                <p>murica</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>John</p> <!-- Se ci metti il link al videogioco, scrivi dentro href, sennò toglilo e scrivi solo al posto di ID Ordine -->
-                            </td>
-                            <td>
-                                <p>Mink</p>
-                            </td>
-                            <td>
-                                <p>3459068432</p>
-                            </td>
-                            <td>
-                                <p>Via Santanna</p>
-                            </td>
-                            <td>
-                                <p>35098</p>
-                            </td>
-                            <td>
-                                <p>Dueville</p>
-                            </td>
-                            <td>
-                                <p>Vicenza</p>
-                            </td>
-                            <td>
-                                <p>minkjohn@live.it</p>
-                            </td>
-                            <td>
-                                <p>johnwayne</p>
-                            </td>
-                            <td>
-                                <p>murica</p>
-                            </td>
+                        <?php foreach($db->query('select * from utenti') as $record) { ?>
+                            <tr>
+                                <td> <?php echo "$record[nome]"?></td>
+                                <td> <?php echo "$record[cognome]"?></td>
+                                <td> <?php echo "$record[telefono]"?></td>
+                                <td> <?php echo "$record[indirizzo]"?></td>
+                                <td> <?php echo "$record[cap]"?></td>
+                                <td> <?php echo "$record[citta]"?></td>
+                                <td> <?php echo "$record[provincia]"?></td>
+                                <td> <?php echo "$record[amministratore]"?></td>
+                                <td> <?php echo "$record[email]"?></td>
+                                <td> <?php echo "$record[login]"?></td>
+                            </tr>
+                        <?php } ?>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
+        ?>
     </section>
 
     <!--Footer-->
