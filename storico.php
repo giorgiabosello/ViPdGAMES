@@ -14,7 +14,7 @@ if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Online Videogames Shopping Center">
     <meta name="author" content="ViPd GAMES">
-    <title>Carrello | ViPd GAMES</title>
+    <title>Storico Ordini | ViPd GAMES</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -37,96 +37,73 @@ if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
 
 <body>
 
-    <!--navbar-->
+<!--navbar-->
 
-    <div id="navbar"></div>
+<div id="navbar"></div>
 
-    <!--/navbar-->
+<!--/navbar-->
 
-    <section id="cart_items">
-        <div class="container">
-            <div class="breadcrumbs">
-                <ol class="breadcrumb">
-                    <li><a href="index.php">Home</a>
-                    </li>
-                    <li class="active">Storico Ordini</li>
-                </ol>
-            </div>
-            <div class="table-responsive cart_info">
-                <table class="table table-condensed">
-                    <thead>
-                        <tr class="cart_menu">
-                            <td>ID Ordine</td>
-                            <td>Login</td>
-                            <td>Data</td>
-                            <td>Metodo di Pagamento</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <p><a href="">10001</a></p> <!-- Se ci metti il link al videogioco, scrivi dentro href, sennò toglilo e scrivi solo al posto di ID Ordine -->
-                            </td>
-                            <td>
-                                <p>ElenaColombo</p>
-                            </td>
-                            <td>
-                                <p>12/09/2015</p>
-                            </td>
-                            <td>
-                                <p>Visa</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p><a href="">ID Ordine</a></p> <!-- Se ci metti il link al videogioco, scrivi dentro href, sennò toglilo e scrivi solo al posto di ID Ordine -->
-                            </td>
-                            <td>
-                                <p>Login</p>
-                            </td>
-                            <td>
-                                <p>Data</p>
-                            </td>
-                            <td>
-                                <p>Metodo di Pagamento</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p><a href="">ID Ordine</a></p> <!-- Se ci metti il link al videogioco, scrivi dentro href, sennò toglilo e scrivi solo al posto di ID Ordine -->
-                            </td>
-                            <td>
-                                <p>Login</p>
-                            </td>
-                            <td>
-                                <p>Data</p>
-                            </td>
-                            <td>
-                                <p>Metodo di Pagamento</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<section id="cart_items">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ol class="breadcrumb">
+                <li><a href="index.php">Home</a>
+                </li>
+                <li class="active">Lista Ordini</li>
+            </ol>
         </div>
-    </section>
+        <div class="table-responsive cart_info">
+            <table class="table table-condensed">
+                <thead>
+                <tr class="cart_menu">
+                    <td>ID Ordine</td>
+                    <td>Login</td>
+                    <td>Data</td>
+                    <td>Metodo di Pagamento</td>
+                    <td>Stato</td>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach($db->query("SELECT * FROM ordini WHERE login = '$_SESSION[id]'") as $record) {
+                    if($record['completo'] == 1){?>
+                        <tr>
+                            <td> <?php echo "$record[idordine]"?></td>
+                            <td> <?php echo "$record[login]"?></td>
+                            <td> <?php echo "$record[data]"?></td>
+                            <td> <?php echo "$record[metodo_pagamento]"?></td>
+                            <td> <?php echo "spedito"?></td>
+                        </tr>
+                    <?php } else{?>
+                        <tr>
+                            <td> <?php echo "$record[idordine]"?></td>
+                            <td> <?php echo "$record[login]"?></td>
+                            <td> <?php echo "$record[data]"?></td>
+                            <td> <?php echo "$record[metodo_pagamento]"?></td>
+                            <td> <?php echo "in preparazione"?></td>
+                        </tr>
+                    <?php }} ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
 
-    <!--Footer-->
-    <div id="footer"></div>
-    <!--/Footer-->
+<!--Footer-->
+<div id="footer"></div>
+<!--/Footer-->
 
-    <!-- Script js -->
-    <script>
-        $("#footer").load("footer.php");
-    </script>
-    <script>
-        $("#navbar").load("navbar.php");
-    </script>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.scrollUp.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/main.js"></script>
+<!-- Script js -->
+<script>
+    $("#footer").load("footer.php");
+</script>
+<script>
+    $("#navbar").load("navbar.php");
+</script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.scrollUp.min.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/main.js"></script>
 </body>
 
 </html>
