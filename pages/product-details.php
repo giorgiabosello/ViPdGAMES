@@ -10,7 +10,6 @@ $line = $query->fetch(PDO::FETCH_ASSOC);
 ?>
 
     <html lang="it">
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -168,21 +167,20 @@ $line = $query->fetch(PDO::FETCH_ASSOC);
                             <!--product-details-->
                             <div class="col-sm-5">
                                 <div class="view-product">
-                                    <img src="../pages<?php echo " $line[path] "?>" class="games-preview img-responsive" alt="" />
+                                    <img src="<?php echo "../pages$line[path]"?>" class="games-preview img-responsive" alt="" />
                                 </div>
                             </div>
                             <div class="col-sm-7">
                                 <div class="product-information">
-                                    <form method="post">
+                                    <form method="post" action="/vipdgames/config/carrello_add.php?cod=<?php echo "$line[codice]"?>.php">
                                     <!--/product-information-->
                                     <img src="../images/product-details/new.jpg" class="newarrival" alt="" />
                                     <h2><?php echo "$line[titolo]"?></h2>
-                                    <p>Codice:
-                                        <input type="text" value="<?php echo "$line[codice]"; ?>" name="$cod" disabled style="text-align: center"/>
-                                    </p>
+                                        <p><b>Disponibilità: </b>
+                                            <?php echo "$line[codice]"?>
+                                        </p>
                                     <span>
 									<span>€<?php echo "$line[prezzo]"?></span>
-
                                             <label>Quantity:</label>
                                             <input <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "disabled"; ?> type="text" value="1" name="qt"/>
                                             <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "<p style='color: red'></br>Per ordinare devi essere registrato</p>"; ?>
