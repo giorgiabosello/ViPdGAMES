@@ -1,5 +1,11 @@
 <?php
 session_start();
+require_once("config/config.db.php"); //importo il file con connessione
+if(isset($_SESSION['idordine'])){
+    $query_qt_ordine = $db->query("SELECT SUM(quantita) FROM carrelli WHERE idordine = $_SESSION[idordine]");
+    $line_qt_ordine = $query_qt_ordine->fetch(PDO::FETCH_ASSOC);
+    $qt_carrello = $line_qt_ordine['sum'];
+}
 ?>
 
 <header id="header">
@@ -86,7 +92,9 @@ session_start();
                                     </li>
                                     <li><a href="storico.php">Storico Ordini</a>
                                     </li>
-                                    <li <?php if(!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1) echo "style=\"display: none\""; ?>><a href="insert.php">Nuovo Inserimento</a>
+                                    <li <?php if(!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1) echo "style=\"display: none\""; ?>><a href="insert.php">Nuovo Videogioco</a>
+                                    </li>
+                                    <li <?php if(!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1) echo "style=\"display: none\""; ?>><a href="admin_newuser.php">Nuovo Utente</a>
                                     </li>
                                     <li <?php if(!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1) echo "style=\"display: none\""; ?>><a href="userlist.php">Elenco Utenti</a>
                                     </li>
@@ -94,7 +102,7 @@ session_start();
                                     </li>
                                 </ul>
                             </li>
-                            <li <?php if(!isset($_SESSION["idordine"])) echo "style=\"display: none\""; ?>><a href="cart.php"><i class="fa fa-shopping-cart"></i> Carrello</a>
+                            <li <?php if(!isset($_SESSION["idordine"])) echo "style=\"display: none\""; ?>><a href="cart.php"><i class="fa fa-shopping-cart"></i> Carrello<?php echo "($qt_carrello pezzi)";?></a>
                             </li>
                             <li <?php if(!isset($_SESSION["idordine"])) echo "style=\"display: none\""; ?>><a href="checkout.php"><i class="fa fa-crosshairs"></i> Checkout</a>
                             </li>
