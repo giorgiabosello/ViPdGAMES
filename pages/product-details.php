@@ -66,21 +66,21 @@ $line = $query->fetch(PDO::FETCH_ASSOC);
                                 <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-										<a href="shop_pc.php">PC</a>
+										<a href="../shop_pc.php">PC</a>
 									</h4>
                                 </div>
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-										<a href="shop_ps3.php">PS3</a>
+										<a href="../shop_ps3.php">PS3</a>
 									</h4>
                                 </div>
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-										<a href="shop_xbox.php">XBOX</a>
+										<a href="../shop_xbox.php">XBOX</a>
 									</h4>
                                 </div>
                             </div>
