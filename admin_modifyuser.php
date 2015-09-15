@@ -3,7 +3,8 @@ session_start();
 require_once("config/config.db.php");
 if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
     $user = $_GET["id"];
-    $query = "SELECT * FROM utenti WHERE login = '$user'"; //Query per dati dell'utente
+    $query = $db->query("SELECT * FROM utenti WHERE login = '$user'");//Query per dati dell'utente
+    $line = $query->fetch(PDO::FETCH_ASSOC);
 }
 ?>
 
@@ -74,7 +75,7 @@ if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
                             <div class="purchase-item-details hidden-xs">
                                 <div class="table-responsive">
                                     <table class="table">
-                                        <form action="config/modify.php" method="post">
+                                        <form action="config/admin_modifyuser.php?id=<?php echo "$user";?>" method="post">
                                             <br>
                                             <tr>
                                                 <td>Username</td>
@@ -112,10 +113,13 @@ if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
                                                 <td><label>Provincia</label></td>
                                                 <td><input value="<?php echo "$line[provincia]"?>" type="text" name="provincia"</td>
                                             </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td><input type="submit" class="btn btn-default" value="Modifica Informazioni"></td>
+                                            </tr>
                                         </form>
                                     </table>
                                 </div>
-                                <input type="submit" class="btn btn-default" value="Modifica Informazioni">
                             </div>
                         </div>
 

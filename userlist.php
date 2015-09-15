@@ -56,6 +56,8 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1){
                 </ol>
             </div>
             <div class="table-responsive cart_info">
+                <?php if(isset($_GET['msg']) && $_GET['msg'] == 1) echo "<p style='color: green'></br>Utente $_GET[user] aggiunto!</p>";?>
+                <?php if(isset($_GET['msg']) && $_GET['msg'] == 2) echo "<p style='color: green'></br>Utente $_GET[user] modificato!</p>";?>
                 <table class="table table-condensed">
                     <thead>
                         <tr class="cart_menu">
@@ -69,6 +71,7 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1){
                             <td>Amministratore</td>
                             <td>Email</td>
                             <td>Username</td>
+                            <td>Modifica</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -84,6 +87,7 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1){
                                 <td> <?php echo "$record[amministratore]"?></td>
                                 <td> <?php echo "$record[email]"?></td>
                                 <td> <?php echo "$record[login]"?></td>
+                                <td> <?php echo "<a href=\"admin_modifyuser.php?id=$record[login]\">Modifica</a>";?></td>
                             </tr>
                         <?php } ?>
                         </tr>

@@ -1,12 +1,10 @@
 <?php
 session_start();
 require_once("config/config.db.php"); //importo il file con connessione
-if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
-    echo '<script language=javascript>document.location.href="myaccount.php?msg=3"</script>';
+if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1){
+    echo '<script language=javascript>document.location.href="myaccount.php?msg=2"</script>';
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="it">
 
@@ -15,7 +13,7 @@ if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Online Videogames Shopping Center">
     <meta name="author" content="ViPd GAMES">
-    <title>Registrazione | ViPd GAMES</title>
+    <title>Admin Modify | ViPd GAMES</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -33,7 +31,6 @@ if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-    <?php echo "ciao" ?>
 </head>
 <!--/head-->
 
@@ -62,7 +59,7 @@ if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
     </div>
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-            <form novalidate="novalidate" action="config/newuser.php" method="post">
+            <form novalidate="novalidate" action="config/admin_newuser.php" method="post">
                 <input name="__RequestVerificationToken" value="lPfe7IL4E9KcTgH-u3gUFG1qELDzpcfbGJWNMn9HyGbocrog_NTTh1oTmNCbbYvrKGp-yrui8gCOgtTgukquC-NUkbWVZyqP4owj5SZem7o1" type="hidden">
                 <div class="features_items my-account-page">
                     <!--features_items-->
@@ -82,9 +79,6 @@ if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
                                 </div>
                                 <div class="col-md-6 ">
                                     <input class="gray-input" data-val="true" data-val-required="Inserire il proprio nome." name="nome" value="<?php echo "$_GET[nome]";?>" type="text">
-                                    <?php if(strlen($nome) < 1 || strlen($nome) > 10)
-                                        echo "<script language=javascript>document.location.href=\"../admin_newuser.php?err=nome&nome=$nome&cognome=$cognome&telefono=$telefono&indirizzo=$indirizzo&cap=$cap&citta=$citta&prov=$prov&email=$email\"</script>";
-                                    ?>
                                 </div>
                                 <div class="col-md-4">
                                     <span class="required">*</span>
@@ -101,9 +95,6 @@ if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
                                 </div>
                                 <div class="col-md-6">
                                     <input class="gray-input" data-val="true" data-val-required="Inserire il proprio cognome." name="cognome" value="<?php echo "$_GET[cognome]";?>" type="text">
-                                    <?php if(strlen($cognome) < 1 || strlen($cognome) > 20)
-                                        echo "<script language=javascript>document.location.href=\"../admin_newuser.php?err=cognome&nome=$nome&cognome=$cognome&telefono=$telefono&indirizzo=$indirizzo&cap=$cap&citta=$citta&prov=$prov&email=$email\"</script>";
-                                    ?>
                                 </div>
                                 <div class="col-md-4">
                                     <span class="required">*</span>
@@ -120,9 +111,6 @@ if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
                                 </div>
                                 <div class="col-md-6">
                                     <input class="gray-input" data-val="true" data-val-required="Telefono necessario."  name="telefono" value="<?php echo "$_GET[telefono]";?>" type="text">
-                                    <?php if(strlen($telefono) < 1 || strlen($telefono) > 15)
-                                        echo "<script language=javascript>document.location.href=\"../admin_newuser.php?err=telefono&nome=$nome&cognome=$cognome&telefono=$telefono&indirizzo=$indirizzo&cap=$cap&citta=$citta&prov=$prov&email=$email\"</script>";
-                                    ?>
                                 </div>
                                 <div class="col-md-4">
                                     <span class="required">*</span>
@@ -139,9 +127,6 @@ if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
                                 </div>
                                 <div class="col-md-6">
                                     <input class="gray-input" data-val="true" data-val-required="Inserire il proprio indirizzo"  name="indirizzo" value="<?php echo "$_GET[indirizzo]";?>" type="text">
-                                    <?php if(strlen($indirizzo) < 1 || strlen($indirizzo) > 20)
-                                        echo "<script language=javascript>document.location.href=\"../admin_newuser.php?err=indirizzo&nome=$nome&cognome=$cognome&telefono=$telefono&indirizzo=$indirizzo&cap=$cap&citta=$citta&prov=$prov&email=$email\"</script>";
-                                    ?>
                                 </div>
                                 <div class="col-md-4">
                                     <span class="required">*</span>
@@ -154,13 +139,10 @@ if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
 
                             <div class="form-group row">
                                 <div class="col-md-2 ">
-                                    <label <?php if(isset($_GET['cap']) && $_GET['err'] == 'nome') echo "style='color: red'"; ?> class="" for="CAP">CAP(6 caratteri):</label>
+                                    <label <?php if(isset($_GET['cap']) && $_GET['err'] == 'cap') echo "style='color: red'"; ?> class="" for="CAP">CAP(6 caratteri):</label>
                                 </div>
                                 <div class="col-md-6">
                                     <input class="gray-input" data-val="true" data-val-required="Inserire il CAP."  name="cap" value="<?php echo "$_GET[cap]";?>" type="text">
-                                    <?php if(strlen($cap) != 5)
-                                        echo "<script language=javascript>document.location.href=\"../admin_newuser.php?err=cap&nome=$nome&cognome=$cognome&telefono=$telefono&indirizzo=$indirizzo&cap=$cap&citta=$citta&prov=$prov&email=$email\"</script>";
-                                    ?>
                                 </div>
                                 <div class="col-md-4">
                                     <span class="required">*</span>
@@ -177,9 +159,6 @@ if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
                                 </div>
                                 <div class="col-md-6">
                                     <input class="gray-input" data-val="true" data-val-required="Città necessaria."  name="citta" value="<?php echo "$_GET[citta]";?>" type="text">
-                                    <?php if(strlen($citta) < 1 || strlen($citta) > 25)
-                                        echo "<script language=javascript>document.location.href=\"../admin_newuser.php?err=citta&nome=$nome&cognome=$cognome&telefono=$telefono&indirizzo=$indirizzo&cap=$cap&citta=$citta&prov=$prov&email=$email\"</script>";
-                                    ?>
                                 </div>
                                 <div class="col-md-4">
                                     <span class="required">*</span>
@@ -196,9 +175,6 @@ if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
                                 </div>
                                 <div class="col-md-6">
                                     <input class="gray-input" data-val="true" data-val-required="Provincia necessaria."  name="prov" value="<?php echo "$_GET[prov]";?>" type="text">
-                                    <?php if(strlen($prov) < 1 || strlen($prov) > 25)
-                                        echo "<script language=javascript>document.location.href=\"../admin_newuser.php?err=prov&nome=$nome&cognome=$cognome&telefono=$telefono&indirizzo=$indirizzo&cap=$cap&citta=$citta&prov=$prov&email=$email\"</script>";
-                                    ?>
                                 </div>
                                 <div class="col-md-4">
                                     <span class="required">*</span>
@@ -217,9 +193,6 @@ if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
                                 </div>
                                 <div class="col-md-6">
                                     <input class="gray-input" data-val="true" data-val-email="Email sbagliata." data-val-required="Email necessaria."  name="email" value="<?php echo "$_GET[email]";?>" type="text">
-                                    <?php if(strlen($email) < 1 || strlen($email) > 80)
-                                        echo "<script language=javascript>document.location.href=\"../admin_newuser.php?err=email&nome=$nome&cognome=$cognome&telefono=$telefono&indirizzo=$indirizzo&cap=$cap&citta=$citta&prov=$prov&email=$email\"</script>";
-                                    ?>
                                 </div>
                                 <div class="col-md-4">
                                     <span class="required">*</span>
@@ -243,9 +216,6 @@ if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
                                 </div>
                                 <div class="col-md-6">
                                     <input class="gray-input" data-val="true" data-val-required="Last name is required." name="login" value="" type="text">
-                                    <?php if(strlen($login) < 1 || strlen($login) > 15)
-                                        echo "<script language=javascript>document.location.href=\"../admin_newuser.php?err=login&nome=$nome&cognome=$cognome&telefono=$telefono&indirizzo=$indirizzo&cap=$cap&citta=$citta&prov=$prov&email=$email\"</script>";
-                                    ?>
                                 </div>
                                 <div class="col-md-4">
                                     <span class="required">*</span>
@@ -263,9 +233,6 @@ if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
                                     </div>
                                     <div class="col-md-6">
                                         <input class="gray-input" data-val="true" data-val-required="Password necessaria." name="psw" value="" type="password">
-                                        <?php if(strlen($psw) < 1 || strlen($psw) > 15)
-                                            echo "<script language=javascript>document.location.href=\"../admin_newuser.php?err=psw&nome=$nome&cognome=$cognome&telefono=$telefono&indirizzo=$indirizzo&cap=$cap&citta=$citta&prov=$prov&email=$email\"</script>";
-                                        ?>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="required">*</span>
@@ -278,9 +245,6 @@ if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
                                     </div>
                                     <div class="col-md-6">
                                         <input class="gray-input" data-val="true" data-val-equalto="Le password non corrispondono. Controlla." data-val-equalto-other="*.Password" data-val-required="Password necessaria." id="ConfirmPassword" name="psw2" value="" type="password">
-                                        <?php if(strlen($psw) < 1 || strlen($psw) > 15)
-                                            echo "<script language=javascript>document.location.href=\"../admin_newuser.php?err=psw&nome=$nome&cognome=$cognome&telefono=$telefono&indirizzo=$indirizzo&cap=$cap&citta=$citta&prov=$prov&email=$email\"</script>";
-                                        ?>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="required">*</span>
@@ -290,7 +254,7 @@ if (isset($_SESSION["admin"]) || $_SESSION["admin"] == 1){
                             </div>
                         </div>
                         <div class="buttons">
-                            <input id="register-button" class="button-1 register-next-step-button btn btn-primary pull-right" value="Registrati" name="register-button" type="submit">
+                            <input id="register-button" class="button-1 register-next-step-button btn btn-primary pull-right" value="Registra Nuovo Utente" name="register-button" type="submit">
                         </div>
                     </div>
                 </div>
