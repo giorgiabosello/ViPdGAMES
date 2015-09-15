@@ -104,8 +104,6 @@ if(isset($_SESSION['idordine'])){
                             </li>
                             <li <?php if(!isset($_SESSION["idordine"])) echo "style=\"display: none\""; ?>><a href="../cart.php"><i class="fa fa-shopping-cart"></i> Carrello<?php echo "($qt_carrello pezzi)";?></a>
                             </li>
-                            <li <?php if(!isset($_SESSION["idordine"])) echo "style=\"display: none\""; ?>><a href="../checkout.php"><i class="fa fa-crosshairs"></i> Checkout</a>
-                            </li>
                             <?php
                             if(isset($_SESSION["auth"]) && $_SESSION["auth"] == 1)
                                 echo "<li> <a href=\"../logout.php\"><i class=\"fa fa-lock\"></i> Logout</a></li>";
