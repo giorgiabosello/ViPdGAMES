@@ -5,21 +5,6 @@
             <div class="row">
                 <div class="col-sm-2">
                     <div class="single-widget">
-                        <h2>Servizi</h2>
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Online Help</a>
-                            </li>
-                            <li><a href="contact-us.php">Contatti</a>
-                            </li>
-                            <li><a href="#">Stato Ordine</a>
-                            </li>
-                            <li><a href="faq.html">FAQ</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="single-widget">
                         <h2>Link rapidi</h2>
                         <ul class="nav nav-pills nav-stacked">
                             <li><a href="#">PC</a>

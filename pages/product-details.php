@@ -8,7 +8,6 @@ require_once("../config/config.db.php"); //importo il file con connessione
 $query = $db->query("SELECT * FROM videogiochi WHERE codice = '$codice'"); //Query per dati del gioco
 $line = $query->fetch(PDO::FETCH_ASSOC);
 ?>
-
     <html lang="it">
     <head>
         <meta charset="utf-8">
@@ -24,7 +23,6 @@ $line = $query->fetch(PDO::FETCH_ASSOC);
         <link href="../css/main.css" rel="stylesheet">
         <link href="../css/responsive.css" rel="stylesheet">
         <link href="../css/star-rating.min.css" rel="stylesheet">
-        
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="../js/star-rating.min.js"></script>
@@ -39,15 +37,10 @@ $line = $query->fetch(PDO::FETCH_ASSOC);
         <link rel="apple-touch-icon-precomposed" href="../images/ico/apple-touch-icon-57-precomposed.png">
     </head>
     <!--/head-->
-
     <body>
-
         <!--navbar-->
-
         <div id="navbar"></div>
-
         <!--/navbar-->
-
         <section>
             <div class="container">
                 <div class="breadcrumbs">
@@ -86,18 +79,13 @@ $line = $query->fetch(PDO::FETCH_ASSOC);
                             </div>
                             </div>
                             <!--/category-products-->
-
-
-
                             <div class="shipping text-center">
                                 <!--shipping-->
                                 <img src="../images/home/shipping.jpg" alt="" />
                             </div>
                             <!--/shipping-->
-
                         </div>
                     </div>
-
                     <div class="col-sm-9 padding-right">
                         <div class="product-details">
                             <!--product-details-->
@@ -112,15 +100,9 @@ $line = $query->fetch(PDO::FETCH_ASSOC);
                                     <!--/product-information-->
                                     <img src="../images/product-details/new.jpg" class="newarrival" alt="" />
                                     <h2><?php echo "$line[titolo]"?></h2>
-<<<<<<< HEAD
                                         <p><b>Codice: </b>
-=======
-<<<<<<< HEAD
                                         <p><b>Codice: </b>
-=======
                                         <p><b>Disponibilità: </b>
->>>>>>> origin/master
->>>>>>> origin/master
                                             <?php echo "$line[codice]"?>
                                         </p>
                                     <span>
@@ -132,8 +114,6 @@ $line = $query->fetch(PDO::FETCH_ASSOC);
                                                 <i class="fa fa-shopping-cart"></i> Acquista
                                             </button>
                                         <?php if(isset($_GET["qt"])) echo "<p style='color: green'></br>Aggiunti $_GET[qt] al carrello</p>"; ?>
-
-
                                     </span>
                                     <?php
                                     ?>

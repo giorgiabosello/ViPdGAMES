@@ -72,11 +72,8 @@ $grantotale = 0;
                     </thead>
                     <tbody>
                     <?php foreach($db->query("SELECT * FROM carrelli WHERE idordine = '$idordine'") as $record) {
-<<<<<<< HEAD
                         $codice = $record['codice']; //codice gioco nel carrello
-=======
                         $codice = $record['codice'];
->>>>>>> origin/master
                         $qt = $record['quantita'];
                         try{
                             $query_gioco = $db->query("SELECT * FROM videogiochi WHERE codice = '$codice'");
@@ -87,21 +84,14 @@ $grantotale = 0;
                             die($e->getMessage());
                         }
                         ?>
-                        <tr>
-<<<<<<< HEAD
+                        <tr
                             <td> <a href="pages/product-details.php?cod=<?php echo "$line_gioco[codice]";?>"><?php echo "$line_gioco[titolo]"?></a></td>
-=======
                             <td> <?php echo "$line_gioco[titolo]"?></td>
->>>>>>> origin/master
                             <td> <?php echo "$line_gioco[codice]"?></td>
                             <td> <?php echo "€$line_gioco[prezzo]"?></td>
                             <td> <?php echo "$qt"?></td>
                             <td> <?php echo "$tot"?></td>
-<<<<<<< HEAD
                             <td> <a href="config/carrello_delete.php?cod=<?php echo "$codice&qt=$qt"?>"> Delete</a> </td>
-=======
-                            <td> Delete</td>
->>>>>>> origin/master
                         </tr>
                     <?php } ?>
                     </tr>

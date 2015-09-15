@@ -194,7 +194,6 @@ else{
                                                 <br>
                                     </div>
                                 </div>
-
                                 <p><a class="btn btn-default" href="myaccount_modify.php" role="button">Modifica informazioni</a>
                                 </p>
                                 <?php if($_GET['msg'] == 1) echo "<p style='color: green'> Dati modificati con successo!</p>" ?>

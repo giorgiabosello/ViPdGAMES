@@ -81,43 +81,45 @@ else{
                                 <div class="table-responsive">
                                     <table class="table">
                                         <form action="config/modify.php" method="post">
-                                        <br>
+                                            <br>
                                             <tr>
                                                 <td>Username</td>
                                                 <td><input value="<?php echo "$line[login]"?>" type="text" name="username" disabled></td>
                                             </tr>
-                                        <tr>
-                                            <td><label>e-mail</label></td>
-                                            <td><input value="<?php echo "$line[email]"?>" type="text" name="email"</td>
-                                        </tr>
-                                        <tr>
-                                            <td><label>Telefono</label></td>
-                                            <td><input value="<?php echo "$line[telefono]"?>" type="text" name="telefono"</td>
-                                        </tr>
-                                        <td><label>Nome</label></td>
-                                            <td><input value="<?php echo "$line[nome]"?>" type="text" name="nome"</td>
-                                        </tr>
-                                        <tr>
-                                            <td><label>Cognome</label></td>
-                                            <br>
-                                            <td><input value="<?php echo "$line[cognome]"?>" type="text" name="cognome"</td>
-                                        </tr>
-                                        <tr>
-                                            <td><label>Indirizzo (residenza)</label></td>
-                                            <td><input value="<?php echo "$line[indirizzo]"?>" type="text" name="indirizzo"</td>
-                                        </tr>
-                                        <tr>
-                                            <td><label>C.A.P.</label></td>
-                                            <td><input value="<?php echo "$line[cap]"?>" type="text" name="cap"</td>
-                                        </tr>
-                                        <tr>
-                                            <td><label>Citta'</label></td>
-                                            <td><input value="<?php echo "$line[citta]"?>" type="text" name="citta"</td>
-                                        </tr>
-                                        <tr>
-                                            <td><label>Provincia</label></td>
-                                            <td><input value="<?php echo "$line[provincia]"?>" type="text" name="provincia"</td>
-                                        </tr>
+                                            <tr>
+                                                <td><label>e-mail</label></td>
+                                                        <td><input value="<?php echo "$line[email]"?>" type="text" name="email"</td>
+                                            </tr>
+                                            <tr>
+                                                <td><label>Telefono</label></td>
+                                                <td><input value="<?php echo "$line[telefono]"?>" type="text" name="telefono"</td>
+                                            </tr>
+                                            <tr>
+                                                <td><label>Nome</label></td>
+                                                <td><input value="<?php echo "$line[nome]"?>" type="text" name="nome"</td>
+                                            </tr>
+                                            <tr>
+                                                <td><label>Cognome</label></td>
+                                                <br>
+                                                <td><input value="<?php echo "$line[cognome]"?>" type="text" name="cognome"</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td><label>Indirizzo (residenza)</label></td>
+                                                <td><input value="<?php echo "$line[indirizzo]"?>" type="text" name="indirizzo"</td>
+                                            </tr>
+                                            <tr>
+                                                <td><label>C.A.P.</label></td>
+                                                <td><input value="<?php echo "$line[cap]"?>" type="text" name="cap"</td>
+                                            </tr>
+                                            <tr>
+                                                <td><label>Citta'</label></td>
+                                                <td><input value="<?php echo "$line[citta]"?>" type="text" name="citta"</td>
+                                            </tr>
+                                            <tr>
+                                                <td><label>Provincia</label></td>
+                                                <td><input value="<?php echo "$line[provincia]"?>" type="text" name="provincia"</td>
+                                            </tr>
                                     </table>
                                 </div>
                                 <input type="submit" class="btn btn-default" value="Modifica Informazioni">

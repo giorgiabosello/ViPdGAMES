@@ -42,12 +42,4 @@ try{
 }catch (PDOException $e){
     die($e->getMessage());
 }
-<<<<<<< HEAD
 echo "<script language=javascript>document.location.href=\"../pages/product-details.php?cod=$codice&qt=$qt\"</script>";
-=======
-<<<<<<< HEAD
-echo "<script language=javascript>document.location.href=\"../pages/product-details.php?cod=$codice&qt=$qt\"</script>";
-=======
->>>>>>> origin/master
->>>>>>> origin/master
-?>

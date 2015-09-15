@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 session_start();
 require_once("config.db.php"); //importo il file con connessione
 if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1 ){
@@ -26,5 +25,3 @@ try{
     die($e->getMessage());
 }
 echo '<script language=javascript>document.location.href="../cart.php?msg=1"</script>';
-=======
->>>>>>> origin/master

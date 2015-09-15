@@ -66,8 +66,3 @@ else {
     $_SESSION["id"] = $login;
     echo "<script language=javascript>document.location.href=\"../myaccount.php?msg=4\"</script>'";
 }
-
-
-
-
-
