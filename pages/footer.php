@@ -24,8 +24,6 @@
                         <ul class="nav nav-pills nav-stacked">
                             <li><a href="#">PC</a>
                             </li>
-                            <li><a href="#">PS4</a>
-                            </li>
                             <li><a href="#">PS3</a>
                             </li>
                             <li><a href="#">Xbox</a>
