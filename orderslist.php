@@ -66,48 +66,15 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1){
                         </tr>
                     </thead>
                     <tbody>
+                    <?php foreach($db->query('SELECT * FROM ordini') as $record) {
+                        if($record['completo'] == 1){?>
                         <tr>
-                            <td>
-                                <p><a href="">10001</a></p> <!-- Se ci metti il link al videogioco, scrivi dentro href, sennò toglilo e scrivi solo al posto di ID Ordine -->
-                            </td>
-                            <td>
-                                <p>ElenaColombo</p>
-                            </td>
-                            <td>
-                                <p>12/09/2015</p>
-                            </td>
-                            <td>
-                                <p>Visa</p>
-                            </td>
+                            <td> <?php echo "$record[idordine]"?></td>
+                            <td> <?php echo "$record[login]"?></td>
+                            <td> <?php echo "$record[data]"?></td>
+                            <td> <?php echo "$record[metodo_pagamento]"?></td>
                         </tr>
-                        <tr>
-                            <td>
-                                <p><a href="">ID Ordine</a></p> <!-- Se ci metti il link al videogioco, scrivi dentro href, sennò toglilo e scrivi solo al posto di ID Ordine -->
-                            </td>
-                            <td>
-                                <p>Login</p>
-                            </td>
-                            <td>
-                                <p>Data</p>
-                            </td>
-                            <td>
-                                <p>Metodo di Pagamento</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p><a href="">ID Ordine</a></p> <!-- Se ci metti il link al videogioco, scrivi dentro href, sennò toglilo e scrivi solo al posto di ID Ordine -->
-                            </td>
-                            <td>
-                                <p>Login</p>
-                            </td>
-                            <td>
-                                <p>Data</p>
-                            </td>
-                            <td>
-                                <p>Metodo di Pagamento</p>
-                            </td>
-                        </tr>
+                    <?php }} ?>
                     </tbody>
                 </table>
             </div>
