@@ -64,89 +64,26 @@ $line = $query->fetch(PDO::FETCH_ASSOC);
                             <div class="panel-group category-products" id="accordian">
                                 <!--category-productsr-->
                                 <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#pc">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											PC
-										</a>
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+										<a href="../shop_pc.php">PC</a>
 									</h4>
-                                    </div>
-                                    <div id="pc" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <ul>
-                                                <li><a href="#">Azione/Avventura</a>
-                                                </li>
-                                                <li><a href="#">RPG</a>
-                                                </li>
-                                                <li><a href="#">Simulazione</a>
-                                                </li>
-                                                <li><a href="#">Sparatutto</a>
-                                                </li>
-                                                <li><a href="#">Sport</a>
-                                                </li>
-                                                <li><a href="#">Strategia</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#xbox">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											PS3
-										</a>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+										<a href="../shop_ps3.php">PS3</a>
 									</h4>
-                                    </div>
-                                    <div id="xbox" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <ul>
-                                                <li><a href="#">Azione/Avventura</a>
-                                                </li>
-                                                <li><a href="#">RPG</a>
-                                                </li>
-                                                <li><a href="#">Simulazione</a>
-                                                </li>
-                                                <li><a href="#">Sparatutto</a>
-                                                </li>
-                                                <li><a href="#">Sport</a>
-                                                </li>
-                                                <li><a href="#">Strategia</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#wii">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Xbox
-										</a>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+										<a href="../shop_xbox.php">XBOX</a>
 									</h4>
-                                    </div>
-                                    <div id="wii" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <ul>
-                                                <li><a href="#">Azione/Avventura</a>
-                                                </li>
-                                                <li><a href="#">RPG</a>
-                                                </li>
-                                                <li><a href="#">Simulazione</a>
-                                                </li>
-                                                <li><a href="#">Sparatutto</a>
-                                                </li>
-                                                <li><a href="#">Sport</a>
-                                                </li>
-                                                <li><a href="#">Strategia</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
                                 </div>
+                            </div>
                             </div>
                             <!--/category-products-->
 
@@ -175,7 +112,15 @@ $line = $query->fetch(PDO::FETCH_ASSOC);
                                     <!--/product-information-->
                                     <img src="../images/product-details/new.jpg" class="newarrival" alt="" />
                                     <h2><?php echo "$line[titolo]"?></h2>
+<<<<<<< HEAD
                                         <p><b>Codice: </b>
+=======
+<<<<<<< HEAD
+                                        <p><b>Codice: </b>
+=======
+                                        <p><b>Disponibilità: </b>
+>>>>>>> origin/master
+>>>>>>> origin/master
                                             <?php echo "$line[codice]"?>
                                         </p>
                                     <span>

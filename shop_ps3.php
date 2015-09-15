@@ -1,7 +1,4 @@
-<?php
-session_start();
-require_once("config/config.db.php");
-?>
+<?php session_start(); require_once( "config/config.db.php"); ?>
 
 <!DOCTYPE html>
 <html lang="it">
@@ -57,22 +54,22 @@ require_once("config/config.db.php");
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-										<a href="shop_pc.php">PC</a>
-									</h4>
+                                    <a href="shop_pc.php">PC</a>
+                                </h4>
                                 </div>
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-										<a href="shop_ps3.php">PS3</a>
-									</h4>
+                                    <a href="shop_ps3.php">PS3</a>
+                                </h4>
                                 </div>
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-										<a href="shop_xbox.php">XBOX</a>
-									</h4>
+                                    <a href="shop_xbox.php">XBOX</a>
+                                </h4>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +89,8 @@ require_once("config/config.db.php");
                     <div class="col-sm-2">
                         <select id="filter" name="selectbasic" class="form-control">
                             <option value="0">Nessuno</option>
-                            <option value="1">Titolo</option> <!-- al posto di 1, metti il link (tra virgolette) -->
+                            <option value="1">Titolo</option>
+                            <!-- al posto di 1, metti il link (tra virgolette) -->
                             <option value="2">Prezzo</option>
                             <option value="3">Codice</option>
                         </select>
@@ -106,57 +104,57 @@ require_once("config/config.db.php");
                     <div class="features_items">
                         <!--features_items-->
                         <h2 class="title text-center">Negozio</h2>
-                        <?php foreach($db->query("SELECT * FROM videogiochi") as $record) {?>
-                            <div class="col-sm-4">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src = "pages/<?php echo "$record[path]"?>" class="games img-responsive" alt = "" />
-                                            <h2 ><?php echo "$record[prezzo]"?>  </h2 >
+                        <?php foreach($db->query("SELECT * FROM videogiochi WHERE console = 'Ps3'") as $record) {?>
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="pages/<?php echo " $record[path] "?>" class="games img-responsive" alt="" />
+                                        <h2><?php echo "$record[prezzo]"?> </h2 >
+                                        <p > <?php echo "$record[titolo]"?> </p >
+                                        <a href = "pages/product-details.php?cod=<?php echo "$record[codice]"?>" class="btn btn-default add-to-cart" ><i class="fa fa-shopping-cart" ></i > Maggiori Dettagli </a >
+                                    </div>
+                                    <div class="product-overlay">
+                                        <div class="overlay-content">
+                                            <h2 ><?php echo "$record[prezzo]"?> </h2 >
                                             <p > <?php echo "$record[titolo]"?> </p >
                                             <a href = "pages/product-details.php?cod=<?php echo "$record[codice]"?>" class="btn btn-default add-to-cart" ><i class="fa fa-shopping-cart" ></i > Maggiori Dettagli </a >
-                                        </div>
-                                        <div class="product-overlay">
-                                            <div class="overlay-content">
-                                                <h2 ><?php echo "$record[prezzo]"?> </h2 >
-                                                <p > <?php echo "$record[titolo]"?> </p >
-                                                <a href = "pages/product-details.php?cod=<?php echo "$record[codice]"?>" class="btn btn-default add-to-cart" ><i class="fa fa-shopping-cart" ></i > Maggiori Dettagli </a >
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        <?php }?>
-                    </div>
-                    <!--features_items-->
+                        </div>
+                    <?php }?>
                 </div>
+                <!--features_items-->
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!--Footer-->
-    <div id="footer"></div>
-    <!--/Footer-->
+<!--Footer-->
+<div id="footer"></div>
+<!--/Footer-->
 
-    <!-- Script js -->
-    <script>
-        $("#footer").load("footer.php");
-    </script>
-    <script>
-        $("#navbar").load("navbar.php");
-    </script>
-    <script>
+<!-- Script js -->
+<script>
+    $("#footer").load("footer.php");
+</script>
+<script>
+    $("#navbar").load("navbar.php");
+</script>
+<script>
         document.getElementById("filter").onchange = function () {
             if (this.selectedIndex !== 0) {
                 window.location.href = this.value;
             }
         };
-    </script>
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery.scrollUp.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/main.js"></script>
+</script>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.scrollUp.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/main.js"></script>
 </body>
 
 </html>
