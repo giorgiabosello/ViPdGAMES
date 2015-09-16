@@ -118,7 +118,7 @@ else{
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         <img src="pages<?php echo "$record[path]"?>" class="games img-responsive" alt="" />
-                                        <h2><?php echo "$record[prezzo]"?> </h2 >
+                                        <h2><?php echo "€ $record[prezzo]"?> </h2 >
                                         <p><?php echo "$record[titolo]"?> </p >
                                         <a href = "pages/product-details.php?cod=<?php echo "$record[codice]"?>" class="btn btn-default add-to-cart" ><i class="fa fa-shopping-cart" ></i > Maggiori Dettagli </a >
                                     </div>
