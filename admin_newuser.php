@@ -13,7 +13,7 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Online Videogames Shopping Center">
     <meta name="author" content="ViPd GAMES">
-    <title>Admin Modify | ViPd GAMES</title>
+    <title>Admin New User | ViPd GAMES</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">

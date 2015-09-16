@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("config/config.db.php");
-//se non c'è la sessione registrata
+//se non c'ï¿½ la sessione registrata
 if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
     echo '<script language=javascript>document.location.href="login.php?err=2"</script>';
 }
@@ -21,7 +21,7 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Online Videogames Shopping Center">
     <meta name="author" content="ViPd GAMES">
-    <title>Account | ViPd GAMES</title>
+    <title>My Account Modify | ViPd GAMES</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">

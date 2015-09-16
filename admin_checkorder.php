@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("config/config.db.php");
-//se non c'è la sessione registrata
+//se non c'ï¿½ la sessione registrata
 if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
     echo '<script language=javascript>document.location.href="myaccount.php"</script>';
 }
@@ -19,7 +19,7 @@ $grantotale = 0;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Online Videogames Shopping Center">
     <meta name="author" content="ViPd GAMES">
-    <title>Carrello | ViPd GAMES</title>
+    <title>Admin Check Order | ViPd GAMES</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -85,7 +85,7 @@ $grantotale = 0;
                     <tr>
                         <td> <a href="pages/product-details.php?cod=<?php echo "$line_gioco[codice]\"><p>$line_gioco[titolo]</p>"?></td>
                             <td> <?php echo "$line_gioco[codice]"?></td>
-                            <td> <?php echo "€$line_gioco[prezzo]"?></td>
+                            <td> <?php echo "ï¿½$line_gioco[prezzo]"?></td>
                             <td> <?php echo "$qt"?></td>
                             <td> <?php echo "$tot"?></td>
                     </tr>
@@ -104,9 +104,9 @@ $grantotale = 0;
             <div class="col-sm-6">
                 <div class="total_area">
                     <ul>
-                        <li>Totale carrello <span>€ <?php echo "$grantotale"?></span>
+                        <li>Totale carrello <span>ï¿½ <?php echo "$grantotale"?></span>
                         </li>
-                        <li>Costi di spedizione <span>€ 0</span>
+                        <li>Costi di spedizione <span>ï¿½ 0</span>
                         </li>
                     </ul>
                     <a class="btn btn-default check_out" href="config/order_confirm.php?pag=bonifico">Bonifico</a>
