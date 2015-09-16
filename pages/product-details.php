@@ -107,16 +107,14 @@ $line = $query->fetch(PDO::FETCH_ASSOC);
                                             <label>Quantity:</label>
                                             <input <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "disabled"; ?> type="text" value="1" name="qt"/>
                                             <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "<p style='color: red'></br>Per ordinare devi essere registrato</p>"; ?>
-                                            <button <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1) echo "disabled"; ?> type="submit" class="btn btn-default cart" >
+                                            <button <?php if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1 || (int)$line['quantita'] <= 0) echo "disabled"; ?> type="submit" class="btn btn-default cart" >
                                                 <i class="fa fa-shopping-cart"></i> Acquista
                                             </button>
                                         <?php if(isset($_GET["qt"])) echo "<p style='color: green'></br>Aggiunti $_GET[qt] al carrello</p>"; ?>
                                         <?php if(isset($_SESSION["admin"]) && $_SESSION["admin"] == 1) echo "<a href=\"../modify_game.php?cod=$line[codice]\">
                                             <p style='color: purple'></br>Modifica Gioco</p></a>"; ?>
                                     </span>
-                                    <?php
-                                    ?>
-                                    <p><b>Disponibilità: </b>
+                                    <p <?php if((int)$line['quantita'] <= 0) echo "style='color: red'"?>><b>Disponibilità: </b>
                                         <?php echo "$line[quantita]"?>
                                     </p>
                                     <p><b>Console: </b>
