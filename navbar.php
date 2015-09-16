@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("config/config.db.php"); //importo il file con connessione
+include "config/config.db.php";
 if(isset($_SESSION['idordine'])){
     $query_qt_ordine = $db->query("SELECT SUM(quantita) FROM carrelli WHERE idordine = $_SESSION[idordine]");
     $line_qt_ordine = $query_qt_ordine->fetch(PDO::FETCH_ASSOC);

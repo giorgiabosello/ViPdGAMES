@@ -22,4 +22,4 @@ try{
 }catch (PDOException $e){
     die($e->getMessage());
 }
-echo "<script language=javascript>document.location.href=\"../insert.php?msg=$cod\"</script>'";
+echo "<script language=javascript>document.location.href=\"../pages/product-details.php?cod=$cod\"</script>'";

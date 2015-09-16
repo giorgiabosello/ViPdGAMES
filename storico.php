@@ -53,6 +53,8 @@ if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
             </ol>
         </div>
         <div class="table-responsive cart_info">
+            <?php if(isset($_GET['msg']) && $_GET['msg' == 1]) echo "<p style='color: green'></br>Carrello aggiornato!</p>";?>
+            <?php if(isset($_GET['msg']) && $_GET['msg' == 2]) echo "<p style='color: red'></br>Ordine già spedito!</p>";?>
             <table class="table table-condensed">
                 <thead>
                 <tr class="cart_menu">
@@ -61,6 +63,7 @@ if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
                     <td>Data</td>
                     <td>Metodo di Pagamento</td>
                     <td>Stato</td>
+                    <td>Delete</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -71,7 +74,8 @@ if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
                             <td> <?php echo "$record[login]"?></td>
                             <td> <?php echo "$record[data]"?></td>
                             <td> <?php echo "$record[metodo_pagamento]"?></td>
-                            <td> <?php echo "spedito"?></td>
+                            <td> <?php echo "Spedito"?></td>
+                            <td> <?php echo "Ordine Spedito"?></td>
                         </tr>
                     <?php } else{?>
                         <tr>
@@ -79,7 +83,8 @@ if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
                             <td> <?php echo "$record[login]"?></td>
                             <td> <?php echo "$record[data]"?></td>
                             <td> <?php echo "$record[metodo_pagamento]"?></td>
-                            <td> <?php echo "in preparazione"?></td>
+                            <td> <?php echo "In preparazione"?></td>
+                            <td> <?php echo "<a href=\"config/order_delete.php?idordine=$record[idordine]\">Delete</a>"?></td>
                         </tr>
                     <?php }} ?>
                 </tbody>

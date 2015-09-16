@@ -7,7 +7,7 @@ if(!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
 $qt = (int)pg_escape_string($dbconn, $_POST['qt']); //quantita richiesta presa da POST
 $codice = (int)pg_escape_string($dbconn, $_GET['cod']); //codice preso da POST
 $username = pg_escape_string($dbconn, $_SESSION['id']); //username preso da SESSION
-$today = date('m/d/Y', time() + (8 * 60 * 60)); //data odierna in stringa per ordine
+$today = date("Y/m/d", time() + (8 * 60 * 60)); //data odierna in stringa per ordine
 $dispo_reale = $db->query("SELECT videogiochi.quantita FROM videogiochi WHERE codice = '$codice'"); //disponibilita presa da DB
 $dispo = $dispo_reale->fetch(PDO::FETCH_ASSOC); //calcolo disponibilit� residua
 if($qt > $dispo['quantita'])

@@ -84,9 +84,8 @@ $grantotale = 0;
                             die($e->getMessage());
                         }
                         ?>
-                        <tr
-                            <td> <a href="pages/product-details.php?cod=<?php echo "$line_gioco[codice]";?>"><?php echo "$line_gioco[titolo]"?></a></td>
-                            <td> <?php echo "$line_gioco[titolo]"?></td>
+                        <tr>
+                            <td> <a href="pages/product-details.php?cod=<?php echo "$line_gioco[codice]\"><p>$line_gioco[titolo]</p>"?></td>
                             <td> <?php echo "$line_gioco[codice]"?></td>
                             <td> <?php echo "€$line_gioco[prezzo]"?></td>
                             <td> <?php echo "$qt"?></td>
@@ -113,8 +112,9 @@ $grantotale = 0;
                             <li>Costi di spedizione <span>€ 0</span>
                             </li>
                         </ul>
-                        <a class="btn btn-default update" href="">Aggiorna</a>
-                        <a class="btn btn-default check_out" href="checkout.php">Check Out</a>
+                        <a class="btn btn-default check_out" href="config/order_confirm.php?pag=bonifico">Bonifico</a>
+                        <a class="btn btn-default check_out" href="config/order_confirm.php?pag=paypal">Paypal</a>
+                        <a class="btn btn-default check_out" href="config/order_confirm.php?pag=contrassegno">Contrassegno</a>
                     </div>
                 </div>
             </div>

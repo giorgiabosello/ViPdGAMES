@@ -101,10 +101,7 @@ $line = $query->fetch(PDO::FETCH_ASSOC);
                                     <img src="../images/product-details/new.jpg" class="newarrival" alt="" />
                                     <h2><?php echo "$line[titolo]"?></h2>
                                         <p><b>Codice: </b>
-                                        <p><b>Codice: </b>
-                                        <p><b>Disponibilità: </b>
                                             <?php echo "$line[codice]"?>
-                                        </p>
                                     <span>
 									<span>€<?php echo "$line[prezzo]"?></span>
                                             <label>Quantity:</label>
