@@ -172,15 +172,7 @@ if(isset($_GET['search']))
                             $a = trim(pg_escape_string($dbconn, $_GET['a']));
                             $sql .= " AND prezzo BETWEEN '0' and '1000000'";
                         }
-                        var_dump($sql);
-                        echo "<br>";
-                        echo "<br>";
-                        echo "<br>";
-                        echo "<br>";
-                        echo "<br>";
-                        echo "<br>";
                         try{
-                            echo "inizio foreach<br>";
                             foreach($db->query($sql) as $record) {?>
                                 <div class="col-sm-9 padding-right">
                         <div class="features_items">
@@ -205,7 +197,6 @@ if(isset($_GET['search']))
                         </div>
                     </div>
                             <?php }
-                            echo "fuori foreach<br>";
                         }catch(PDOException $e) {
                             die($e->getMessage());
                         }
