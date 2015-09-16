@@ -146,13 +146,12 @@ if(isset($_SESSION['idordine'])){
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <form class="navbar-form navbar-right">
+                    <form class="navbar-form navbar-right" method="get" action="search.php">
                         <div class="input-group">
-                            <input type="search" placeholder="Cerca" class="form-control" />
+                            <input type="search" placeholder="Cerca" class="form-control" name="search"/>
                             <div class="input-group-btn ">
-                                <a class="btn btn-default" href="search.php">
-                                    <span class="fa fa-search"></span>
-                                </a>
+                                <input class="btn btn-default" value="Vai" type="submit">
+                                </input>
                             </div>
                         </div>
                     </form>
