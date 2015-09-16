@@ -1,18 +1,16 @@
 <?php
 session_start();
 require_once("config/config.db.php");
-if ($_GET['ord'] == '1') {
-    $query=("SELECT * FROM videogiochi WHERE console = 'Ps3' ORDER BY titolo ASC");
+if (isset($_GET['ord']) && $_GET['ord'] == '1') {
+    $query=("SELECT * FROM videogiochi WHERE console = 'PS3' OR console = 'Ps3' OR console = 'ps3' ORDER BY titolo ASC");
 }
-else if ($_GET['ord'] == '2') {
-    $query = ("SELECT * FROM videogiochi WHERE console = 'Ps3' ORDER BY prezzo ASC");
+else if (isset($_GET['ord']) && $_GET['ord'] == '2') {
+    $query = ("SELECT * FROM videogiochi WHERE console = 'PS3' OR console = 'Ps3' OR console = 'ps3' ORDER BY prezzo ASC");
 }
 else{
-    $query = ("SELECT * FROM videogiochi");
+    $query = ("SELECT * FROM videogiochi WHERE console = 'PS3' OR console = 'Ps3' OR console = 'ps3' ORDER BY titolo ASC");
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="it">
 
@@ -120,7 +118,7 @@ else{
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="pages/<?php echo " $record[path] "?>" class="games img-responsive" alt="" />
+                                        <img src="pages<?php echo "$record[path]"?>" class="games img-responsive" alt="" />
                                         <h2><?php echo "$record[prezzo]"?> </h2 >
                                         <p > <?php echo "$record[titolo]"?> </p >
                                         <a href = "pages/product-details.php?cod=<?php echo "$record[codice]"?>" class="btn btn-default add-to-cart" ><i class="fa fa-shopping-cart" ></i > Maggiori Dettagli </a >
