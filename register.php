@@ -139,7 +139,7 @@ if (isset($_SESSION["auth"]) || $_SESSION["auth"] == 1){
                                 
                                 <div class="form-group row">
                                     <div class="col-md-2 ">
-                                        <label <?php if(isset($_GET['cap']) && $_GET['err'] == 'nome') echo "style='color: red'"; ?> class="" for="CAP">CAP(6 caratteri):</label>
+                                        <label <?php if(isset($_GET['cap']) && $_GET['err'] == 'nome') echo "style='color: red'"; ?> class="" data-val-length-max="5" for="CAP">CAP(5 caratteri):</label>
                                     </div>
                                     <div class="col-md-6">
                                         <input class="gray-input" data-val="true" data-val-required="Inserire il CAP."  name="cap" value="<?php echo "$_GET[cap]";?>" type="text">

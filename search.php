@@ -106,9 +106,9 @@ if(isset($_GET['search']))
                                         <div class="col-md-6">
                                             <select class="gray-dropdown" data-val="true" data-val-number="The field Manufacturer must be a number." id="Mid" name="console">
                                                 <option selected="selected" value="">Tutte</option>
-                                                <option>Pc</option>
-                                                <option>Ps3</option>
-                                                <option>Xbox</option>
+                                                <option>PC</option>
+                                                <option>PS3</option>
+                                                <option>XBOX</option>
                                             </select>
                                         </div>
                                     </div>
@@ -182,11 +182,28 @@ if(isset($_GET['search']))
                         try{
                             echo "inizio foreach<br>";
                             foreach($db->query($sql) as $record) {?>
-                                <tr>
-                                    <td> <?php echo "$record[titolo]"?></td>
-                                    <td> <?php echo "$record[console]"?></td>
-                                    <td> <?php echo "$record[prezzo]"?></td>
-                                </tr>
+                                <div class="col-sm-9 padding-right">
+                        <div class="features_items">
+                            <!--features_items-->
+                            
+                            <div class="row">
+                                
+                                <div class="col-md-6 inline">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="pages<?php echo "$record[path]"?>" align="middle"  alt="" />
+                                                <h2>€ <?php echo "$record[prezzo]"?></h2>
+                                                <p><?php echo "$record[titolo]"?></p>
+                                                <p><?php echo "$record[console]"?></p>
+                                                <a href = "pages/product-details.php?cod=<?php echo "$record[codice]"?>" class="btn btn-default add-to-cart" ><i class="fa fa-shopping-cart" ></i > Maggiori Dettagli </a >
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                             <?php }
                             echo "fuori foreach<br>";
                         }catch(PDOException $e) {
