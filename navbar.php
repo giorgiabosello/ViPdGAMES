@@ -96,6 +96,8 @@ if(isset($_SESSION['idordine'])){
                                     </li>
                                     <li <?php if(!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1) echo "style=\"display: none\""; ?>><a href="admin_newuser.php">Nuovo Utente</a>
                                     </li>
+                                    <li <?php if(!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1) echo "style=\"display: none\""; ?>><a href="modify_game.php">Modifica Videogioco</a>
+                                    </li>
                                     <li <?php if(!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1) echo "style=\"display: none\""; ?>><a href="userlist.php">Elenco Utenti</a>
                                     </li>
                                     <li <?php if(!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1) echo "style=\"display: none\""; ?>><a href="orderslist.php">Elenco Ordini</a>

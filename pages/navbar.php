@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../config/config.db.php"); //importo il file con connessione
+include"../config/config.db.php"; //importo il file con connessione
 if(isset($_SESSION['idordine'])){
     $query_qt_ordine = $db->query("SELECT SUM(quantita) FROM carrelli WHERE idordine = $_SESSION[idordine]");
     $line_qt_ordine = $query_qt_ordine->fetch(PDO::FETCH_ASSOC);
@@ -94,7 +94,9 @@ if(isset($_SESSION['idordine'])){
                                     </li>
                                     <li <?php if(!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1) echo "style=\"display: none\""; ?>><a href="../insert.php">Nuovo Inserimento</a>
                                     </li>
-                                    <li <?php if(!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1) echo "style=\"display: none\""; ?>><a href="admin_newuser.php">Nuovo Utente</a>
+                                    <li <?php if(!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1) echo "style=\"display: none\""; ?>><a href="../config/admin_newuser.php">Nuovo Utente</a>
+                                    </li>
+                                    <li <?php if(!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1) echo "style=\"display: none\""; ?>><a href="../modify_game.php">Modifica Videogioco</a>
                                     </li>
                                     <li <?php if(!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1) echo "style=\"display: none\""; ?>><a href="../userlist.php">Elenco Utenti</a>
                                     </li>
@@ -102,7 +104,8 @@ if(isset($_SESSION['idordine'])){
                                     </li>
                                 </ul>
                             </li>
-                            <li <?php if(!isset($_SESSION["idordine"])) echo "style=\"display: none\""; ?>><a href="../cart.php"><i class="fa fa-shopping-cart"></i> Carrello<?php echo "($qt_carrello pezzi)";?></a>
+                            <li <?php if(!isset($_SESSION["idordine"])) echo "style=\"display: none\""; ?>><a href="../cart.php"><i class="fa fa-shopping-cart"></i> Carrello<?php
+                                    if($qt_carrello != NULL) echo "($qt_carrello pezzi)";?></a>
                             </li>
                             <?php
                             if(isset($_SESSION["auth"]) && $_SESSION["auth"] == 1)

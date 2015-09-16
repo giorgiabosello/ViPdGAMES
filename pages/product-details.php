@@ -111,6 +111,8 @@ $line = $query->fetch(PDO::FETCH_ASSOC);
                                                 <i class="fa fa-shopping-cart"></i> Acquista
                                             </button>
                                         <?php if(isset($_GET["qt"])) echo "<p style='color: green'></br>Aggiunti $_GET[qt] al carrello</p>"; ?>
+                                        <?php if(isset($_SESSION["admin"]) && $_SESSION["admin"] == 1) echo "<a href=\"../modify_game.php?cod=$line[codice]\">
+                                            <p style='color: purple'></br>Modifica Gioco</p></a>"; ?>
                                     </span>
                                     <?php
                                     ?>
@@ -121,7 +123,7 @@ $line = $query->fetch(PDO::FETCH_ASSOC);
                                         <?php echo "$line[console]"?>
                                     </p>
                                     <p><b>Sviluppatore: </b>
-                                        <?php echo "$line[sviluppo]"?>
+                                        <?php echo "$line[sviluppatore]"?>
                                     </p>
                                     <a href=""><img src="../images/product-details/share.png" class="share img-responsive" alt="" />
                                     </a>
