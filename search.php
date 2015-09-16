@@ -1,3 +1,9 @@
+<?php
+session_start();
+require_once("config/config.db.php"); //importo il file con connessione
+if(isset($_GET['search']))
+    $testo = trim(pg_escape_string($dbconn, $_GET['search']));
+?>
 <!DOCTYPE html>
 <html lang="it">
 
@@ -83,12 +89,12 @@
 
                         <div class="product-details">
                             <div class="custom-page-box-div">
-                                <form novalidate="novalidate" action="/search" method="get">
+                                <form novalidate="novalidate" action="" method="get">
                                     <div class="basic-search">
                                         <div class="form-group row">
-                                            <label class="col-md-2 control-label" for="Q">Cerca:</label>
+                                            <label class="col-md-2 control-label" for="search">Cerca:</label>
                                             <div class="col-md-6">
-                                                <input class="gray-input" id="Q" name="Q" value="prova" type="text">
+                                                <input class="gray-input" id="search" name="search" value="" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -98,11 +104,11 @@
                                     <div class="form-group row">
                                         <label class="col-md-2 control-label" for="Mid">Console:</label>
                                         <div class="col-md-6">
-                                            <select class="gray-dropdown" data-val="true" data-val-number="The field Manufacturer must be a number." id="Mid" name="Mid">
-                                                <option selected="selected" value="0">Tutte</option>
-                                                <option value="1">PC</option>
-                                                <option value="2">PS3</option>
-                                                <option value="3">XBOX</option>
+                                            <select class="gray-dropdown" data-val="true" data-val-number="The field Manufacturer must be a number." id="Mid" name="console">
+                                                <option selected="selected" value="">Tutte</option>
+                                                <option>Pc</option>
+                                                <option>Ps3</option>
+                                                <option>Xbox</option>
                                             </select>
                                         </div>
                                     </div>
@@ -114,11 +120,11 @@
                                             <div class="price-range row">
                                                 <div class="col-md-1">Da:</div>
                                                 <div class="col-md-3">
-                                                    <input class="gray-input valid" value="" type="text">
+                                                    <input class="gray-input valid" value="" type="text" name="da">
                                                 </div>
                                                 <div class="col-md-1">A:</div>
                                                 <div class="col-md-3">
-                                                    <input class="gray-input" value="" type="text">
+                                                    <input class="gray-input" value="" type="text" name="a">
                                                 </div>
                                             </div>
                                         </div>
@@ -130,10 +136,67 @@
                             </form>
                         </div>
                     </div>
+                    <?php
+                    if(isset($testo))
+                        echo "<h2>Risultati della ricerca:</h2>";
+                    if(isset($testo) && $testo == "")
+                        echo "<p>Spiacente, nessun risultato!</p>";
+                    else if(isset($testo) && $testo != "") {
+                        $arr_txt = explode(" ", $testo);
+                        $sql = "SELECT * FROM videogiochi WHERE ";
+                        for ($i = 0; $i < count($arr_txt); $i++) {
+                            if ($i > 0) {
+                                $sql .= " AND ";
+                            }
+                            $sql .= "(titolo LIKE '%" . $arr_txt[$i] . "%' OR descrizione LIKE '%" . $arr_txt[$i] . "%')";
+                        }
+                        if (isset($_GET['console']) && $_GET['console'] != ""){
+                            $console = trim(pg_escape_string($dbconn, $_GET['console']));
+                            $console2 = strtolower($console);
+                            $sql .= " AND (console = '$console' OR console = '$console2')";
+                        }
+                        if (isset($_GET['da']) && $_GET['da'] != "" && isset($_GET['a']) && $_GET['a'] != ""){
+                            $da = trim(pg_escape_string($dbconn, $_GET['da']));
+                            $a = trim(pg_escape_string($dbconn, $_GET['a']));
+                            $sql .= " AND prezzo BETWEEN '$da' and '$a'";
+                        }
+                        else if(isset($_GET['da']) && $_GET['da'] != "" && (!isset($_GET['a']) || $_GET['a'] == "")){
+                            $da = trim(pg_escape_string($dbconn, $_GET['da']));
+                            $sql .= " AND prezzo BETWEEN '$da' and '1000000'";
+                        }
+                        else if((isset($_GET['a']) && $_GET['a'] != "") && (!isset($_GET['da']) || $_GET['da'] == "")){
+                            $a = trim(pg_escape_string($dbconn, $_GET['a']));
+                            $sql .= " AND prezzo BETWEEN '0' and '$a''";
+                        }
+                        else{
+                            $a = trim(pg_escape_string($dbconn, $_GET['a']));
+                            $sql .= " AND prezzo BETWEEN '0' and '1000000'";
+                        }
+                        var_dump($sql);
+                        echo "<br>";
+                        echo "<br>";
+                        echo "<br>";
+                        echo "<br>";
+                        echo "<br>";
+                        echo "<br>";
+                        try{
+                            echo "inizio foreach<br>";
+                            foreach($db->query($sql) as $record) {?>
+                                <tr>
+                                    <td> <?php echo "$record[titolo]"?></td>
+                                    <td> <?php echo "$record[console]"?></td>
+                                    <td> <?php echo "$record[prezzo]"?></td>
+                                </tr>
+                            <?php }
+                            echo "fuori foreach<br>";
+                        }catch(PDOException $e) {
+                            die($e->getMessage());
+                        }
+                    }
+                    ?>
                 </div>
             </div>
             <!--/product-information-->
-        </div>
         </div>
     </section>
 
