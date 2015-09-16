@@ -70,7 +70,7 @@ if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
                 <?php foreach($db->query("SELECT * FROM ordini WHERE login = '$_SESSION[id]'") as $record) {
                     if($record['completo'] == 1){?>
                         <tr>
-                            <td> <?php echo "$record[idordine]"?></td>
+                            <td> <a href="pages/product-details.php?cod=<?php echo "$line_gioco[codice]\"><p>$line_gioco[titolo]</p>"?></td>
                             <td> <?php echo "$record[login]"?></td>
                             <td> <?php echo "$record[data]"?></td>
                             <td> <?php echo "$record[metodo_pagamento]"?></td>
@@ -79,7 +79,6 @@ if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
                         </tr>
                     <?php } else{?>
                         <tr>
-                            <td> <?php echo "$record[idordine]"?></td>
                             <td> <?php echo "$record[login]"?></td>
                             <td> <?php echo "$record[data]"?></td>
                             <td> <?php echo "$record[metodo_pagamento]"?></td>

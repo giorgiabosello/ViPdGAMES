@@ -10,5 +10,6 @@ else{
     $pagamento = $_GET['pag'];
     $completo = 1;
     $query = $db->query("UPDATE ordini SET (metodo_pagamento, completo) = ('$pagamento', '$completo') WHERE idordine = $idordine");
+    $_SESSION['idordine'] = NULL;
     echo "<script language=javascript>document.location.href=\"../storico.php\"</script>";
 }
