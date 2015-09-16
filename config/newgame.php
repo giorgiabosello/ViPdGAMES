@@ -8,6 +8,7 @@ if (!isset($_SESSION["auth"]) || $_SESSION["auth"] != 1){
 if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != 1){
     echo '<script language=javascript>document.location.href="myaccount.php?msg=2"</script>';
 }
+$titolo = trim(pg_escape_string($dbconn, $_POST['titolo']));
 $categoria = trim(pg_escape_string($dbconn, $_POST['categoria']));
 $console = trim(pg_escape_string($dbconn, $_POST['console']));
 $descr = trim(pg_escape_string($dbconn, $_POST['descr']));
